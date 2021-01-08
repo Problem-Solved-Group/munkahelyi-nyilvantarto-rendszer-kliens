@@ -6,7 +6,7 @@ import { MessagesComponent } from './messages/messages.component';
 
 const routes: Routes = [
   {path: '', component: AuthComponent},
-  {path:'messages', component: MessagesComponent},
+  {path: 'messages', component: MessagesComponent},
   {path: '404', component: PageNotFoundComponent},
   {path: '**', redirectTo:'404', pathMatch:'full'}
 ];
