@@ -23,9 +23,7 @@ cache:
 before_script:
   - npm install -g @angular/cli
 
-script:
-  - ng lint
-  - ng test --watch=false
+script: []
 
 # Amennyiben nincsenek tesztek, úgy a "script" definiálására továbbra is szükség van (különben alapértelmezetten indul az npm test):
 
