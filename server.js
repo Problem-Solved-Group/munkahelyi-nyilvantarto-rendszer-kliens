@@ -18,12 +18,12 @@ const foreceSSL = function() {
 
 // Statikus állományok elérésének definiálása:
 
-app.use(express.static(__dirname + '/dist/munkahelyi-nyilvantarto-rendszer'));
+app.use(express.static(__dirname + '/dist/munkahelyi-nyilvantarto-rendszer-kliens'));
 
 // PathLocationStrategy kezelése, azaz minden URI áritányítás index.html-re, ahol a továbbiakban az Angular Routing kezeli:
 
 app.get('/*', function(req, res) {
-	res.sendFile(path.join(__dirname + '/dist/munkahelyi-nyilvantarto-rendszer/index.html'));
+	res.sendFile(path.join(__dirname + '/dist/munkahelyi-nyilvantarto-rendszer-kliens/index.html'));
 });
 
 // Express figyeljen a 8080-as porton:
