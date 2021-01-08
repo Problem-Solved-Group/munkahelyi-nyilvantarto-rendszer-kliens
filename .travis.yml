@@ -40,3 +40,5 @@ deploy:
   # API kulcs megadása Travis-CI felületén kerüljön hozzáadásra, ahol a változó neve: HEROKU_API_KEY értéke, pedig a Heroku UI-ban a projekt beállításai alatt található
   api-key: "kVFPZD2wel/fMRUU5C4XihP1jUm9ztCdQ6KxzrvCUUAnMKLht/YFGxzECRVe0sYd49DO88O+CdHRMTc9w+uPukuCr7zE+F2X0KD4q5Ov98hhNKGA9Wb5JVaSuIXINvaJn07y7dN+pnyWslR6siCFtW2A6wAU7/Rjv9gUuu0psOIc4MUhKDl1754Z6QPJoj8wnkqvd7j1KUiFTSpnlJYr0lwAkY1Yo96INnxlTvE32UczxxZ6y7KrrfFGjj4mRFcrFAe0u6rhDKCcdK/vY8eslFaPL9W911NDH8kkDJiPFH+Wa7UAGf+PhkXBglSF8j5NYjPvJwgXvq/R6j/62qvBFyzbqpd0uSKvd1qVHkFoFBfkxuYGBEXE6GSBM4aGabBhnE0PYIwG4h7DuPgqh/TIPsaZ30ElUmdqFTuA9bnYLHFMaI3y76YRp1EEjRcez+r3s4oHuII2QmhXzcz2rKdxKHOiJwHSR+6qE7QoHdLKkqAmcevvJ4D8vkmeuz7CFBuhY+tS4m+omGn4t6jZ5JGABeu7TAOUTOrjGomNv5K/8ODYy6E2vYRETKirVIuiq3Ztxgezrw0Za0pVGOfVe5It7/q7/Izmrs4EDBG2LY5SyhG9IoOk6MkUOKh6VePrBaJ2bMpDO/qhJs7pGWwOQB5xjQojquW5NJ/Mu9xVaFTp/F4="
   app: munkahnyrk
+  on:
+    brach: main
