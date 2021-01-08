@@ -23,7 +23,9 @@ cache:
 before_script:
   - npm install -g @angular/cli
 
-script: []
+script:
+  - npm lint
+  - npm test --watch= false --browsers=ChromeHeadlessNoSandbox
 
 # Amennyiben nincsenek tesztek, úgy a "script" definiálására továbbra is szükség van (különben alapértelmezetten indul az npm test):
 
