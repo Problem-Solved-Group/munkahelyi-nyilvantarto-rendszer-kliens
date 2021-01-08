@@ -1,0 +1,55 @@
+<section class="menu">
+    <div class="menu-button-row">
+        <div class="menu-flex-container">
+            <div class="menu-button">
+                <button mat-mini-fab aria-label="Szabadságnyilvántartás">
+                    <mat-icon>calendar_today</mat-icon>
+                </button>
+            </div>
+        
+            <div class="menu-button">
+                <button mat-mini-fab aria-label="Profil">
+                    <mat-icon>restore</mat-icon>
+                </button>
+            </div>
+        
+            <div class="menu-button">
+                <button mat-mini-fab aria-label="Üzenetek" [matMenuTriggerFor]="messagesMenu">
+                    <mat-icon>chat</mat-icon>
+                </button>
+            </div>    
+        
+            <div class="menu-button">
+                <button mat-mini-fab aria-label="Profil" [matMenuTriggerFor]="profileMenu">
+                    <mat-icon>account_circle</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<mat-menu #profileMenu="matMenu">
+    <button mat-menu-item>
+        <mat-icon>person</mat-icon>
+        Profil
+    </button>
+    <button mat-menu-item>
+        <mat-icon>vpn_key</mat-icon>
+        Kijelentkezés
+    </button>
+</mat-menu>
+
+<mat-menu #messagesMenu="matMenu" xPosition="before">
+    <button mat-menu-item>
+        <mat-icon>redo</mat-icon>
+        Elküldött
+    </button>
+    <button mat-menu-item>
+        <mat-icon>undo</mat-icon>
+        Fogadott
+    </button>
+    <button mat-menu-item>
+        <mat-icon>add</mat-icon>
+        Új üzenet küldése
+    </button>
+</mat-menu>
