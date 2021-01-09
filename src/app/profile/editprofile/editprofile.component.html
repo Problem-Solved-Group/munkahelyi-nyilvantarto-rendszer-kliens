@@ -1,0 +1,45 @@
+<h2>Profil módosítása</h2>
+<form [formGroup]="userForm" (ngSubmit)="editProfile(userForm)" novalidate>
+	<div fxLayout="row wrap" fxLayoutAlign="start start">
+        <mat-form-field appearance="fill" fxFlex="100" aria-disabled="dis">
+			<mat-label>Név</mat-label>
+			<input matInput type="text" placeholder="Név" formControlName="name">
+            <mat-error>Mező kitöltése kötelező!</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" fxFlex="100">
+			<mat-label>Email cím</mat-label>
+			<input matInput type="email" placeholder="E-mail cím" formControlName="email">
+			<mat-error>Mező kitöltése kötelező!</mat-error>
+		</mat-form-field>
+			<h2>Ide jön majd a telephely választás</h2>
+        <!--<mat-form-field appearance="fill" fxFlex="100">
+			<mat-chip-list #chipList aria-label="Site selection">
+				<mat-chip
+					*ngFor="let site of sites"
+					[selectable]="true"
+					[removable]="false"
+				>
+				{{ site }}
+				</mat-chip>
+				<input
+					placeholder="Telephelyek"
+					#sitesInput
+					[formControl]="siteCtrl"
+					[matAutocomplete]="auto"
+					[matChipInputFor]="chipList"
+					[matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+					(matChipInputTokenEnd)="addSite($event)"
+				>
+			</mat-chip-list>
+			<mat-autocomplete #auto="matAutocomplete" (optionSelected)="siteSelected($event)">
+				<mat-option *ngFor="let site of filteredSites | async" [value]="site">
+					{{ site }}
+				</mat-option>
+			</mat-autocomplete>
+		</mat-form-field>-->
+		<div>
+			<button mat-raised-button type="submit" color="accent">Módosítás</button>
+		</div>
+    </div>
+</form>
