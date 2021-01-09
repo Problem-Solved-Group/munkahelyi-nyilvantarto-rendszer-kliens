@@ -1,1 +1,30 @@
-<p>login works!</p>
+<form [formGroup]="loginForm" fxLayoutAlign="stretch" fxLayout="column" (ngSubmit)="signin(loginForm)" novalidate >
+    <mat-form-field>
+        <input
+            matInput
+            type="text"
+            placeholder="Felhasználónév"
+            formControlName="username"
+            required
+        >
+        <mat-error>Adja meg a regisztráció során használt felhasználónevét!</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input
+            matInput
+            type="password"
+            placeholder="Jelszó"
+            color="primary"
+            formControlName="password"
+            required
+        >
+        <mat-error>Jelszó kitöltése kötelező!</mat-error>
+    </mat-form-field>
+    <button
+        mat-raised-button
+        color="accent"
+        style="margin:15px 0 0 0"
+    >
+        Belépés
+    </button>
+</form>

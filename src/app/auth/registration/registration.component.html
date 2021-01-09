@@ -1,0 +1,66 @@
+<form [formGroup]="registrationForm" fxLayoutAlign="stretch" fxLayout="column" novalidate>
+    <mat-form-field>
+        <input
+            matInput
+            type="text"
+            placeholder="Név"
+            formControlName="name"
+            required
+        >
+        <mat-error>A mező kitöltése kötelező!</mat-error>
+    </mat-form-field>
+
+    <mat-form-field hintLabel="Példa: example@domain.com">
+        <input
+            matInput
+            type="email"
+            placeholder="E-mail cím"
+            formControlName="email"
+            required
+        >
+        <mat-error>Helytelen e-mail cím formátum!</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input
+            matInput
+            type="text"
+            placeholder="Felhasználónév"
+            formControlName="username"
+            required
+        >
+        <mat-error>A mező kitöltése kötelező!</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input
+            matInput
+            type="password"
+            placeholder="Jelszó"
+            color="primary"
+            formControlName="password"
+            required
+        >
+        <mat-error>Jelszó kitöltése kötelező!</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input
+            matInput
+            type="passwordre"
+            placeholder="Jelszó megismétlése"
+            color="primary"
+            formControlName="passwordre"
+            required
+        >
+        <mat-error>Jelszó kitöltése kötelező!</mat-error>
+    </mat-form-field>
+
+    <button
+        mat-raised-button
+        color="accent"
+        style="margin:15px 0 0 0"
+    >
+        Regisztráció
+    </button>
+</form>
