@@ -1,1 +1,3 @@
-hello from
+<div *ngFor="let message of (ms.messages$ | async)">
+    {{ message | json}}
+</div>
