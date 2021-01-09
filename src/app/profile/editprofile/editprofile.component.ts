@@ -16,8 +16,9 @@ export class EditprofileComponent implements OnInit {
     public dialogRef: MatDialogRef<EditprofileComponent>
   ) {
     this.userForm = this.formBuilder.group({
-      name: [{value: 'Admin', disabled: true}, Validators.required],
-      email: [{value: 'admin@admin.hu', disabled: true}, [Validators.email, Validators.required]],
+      name: [null, Validators.required],
+      email: [null, [Validators.email, Validators.required]],
+      role: [null, Validators.required],
       sites: []
     });
   }
