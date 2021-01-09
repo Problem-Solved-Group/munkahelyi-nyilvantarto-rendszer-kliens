@@ -12,6 +12,15 @@
 			<input matInput type="email" placeholder="E-mail cím" formControlName="email">
 			<mat-error>Mező kitöltése kötelező!</mat-error>
 		</mat-form-field>
+
+		<mat-form-field appearance="fill" fxFlex="100">
+			<mat-label>Beosztás</mat-label>
+			<mat-select formControlName="receiver">
+				<mat-option value="ROLE_ADMIN">Admin</mat-option>
+				<mat-option value="ROLE_LEADER">Vezető</mat-option>
+				<mat-option value="ROLE_WORKER">Alkalmazott</mat-option>
+			</mat-select>
+		</mat-form-field>
 			<h2>Ide jön majd a telephely választás</h2>
         <!--<mat-form-field appearance="fill" fxFlex="100">
 			<mat-chip-list #chipList aria-label="Site selection">
