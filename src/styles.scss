@@ -12,18 +12,18 @@ body {
 		padding: 0;
 	}	
 }
-.authpanel-background {
-    background: rgb(255,255,255);
-    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(203,203,203,1) 100%);
+
+.background {
+    background: rgb(214,221,255);
+    background: -moz-radial-gradient(circle, rgba(214,221,255,1) 0%, rgba(255,255,255,1) 70%);
+    background: -webkit-radial-gradient(circle, rgba(214,221,255,1) 0%, rgba(255,255,255,1) 70%);
+    background: radial-gradient(circle, rgba(214,221,255,1) 0%, rgba(255,255,255,1) 70%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d6ddff",endColorstr="#ffffff",GradientType=1);
 }
 
-.mat-toolbar mat-accent mat-toolbar-single-row {
-    text-align: center;
+.box-shadow {
+    box-shadow: 5px 5px 5px #c1c1c1;
 }
-
-
-
-
 
 .menu-spacer {
     flex: 1 1 auto;
@@ -39,7 +39,6 @@ section.menu {
     display: table;
 }
 
-  
 .menu-button-row {
     display: table-cell;
     width: 250px;
@@ -53,4 +52,8 @@ section.menu {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+}
+
+div.toggle-menu {
+    margin-top: 5px;
 }

@@ -29,7 +29,7 @@
 </section>
 
 <mat-menu #profileMenu="matMenu">
-    <button mat-menu-item>
+    <button mat-menu-item routerLink="/profile" routerLinkActive="active">
         <mat-icon>person</mat-icon>
         Profil
     </button>
@@ -40,11 +40,11 @@
 </mat-menu>
 
 <mat-menu #messagesMenu="matMenu" xPosition="before">
-    <button mat-menu-item>
+    <button mat-menu-item routerLink="/messages" routerLinkActive="active">
         <mat-icon>redo</mat-icon>
         Elküldött
     </button>
-    <button mat-menu-item>
+    <button mat-menu-item routerLink="/messages" routerLinkActive="active">
         <mat-icon>undo</mat-icon>
         Fogadott
     </button>
