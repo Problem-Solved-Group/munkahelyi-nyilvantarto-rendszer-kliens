@@ -32,6 +32,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { MessageComponent } from './messages/message/message.component';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { MessageComponent } from './messages/message/message.component';
     MessageComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

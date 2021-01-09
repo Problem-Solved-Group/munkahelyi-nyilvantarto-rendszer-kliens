@@ -7,7 +7,8 @@ import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {path: 'profile', component: ProfileComponent},
-  {path: 'messages', component: MessagesComponent},
+  {path: 'messages/sent', component: MessagesComponent},
+  {path: 'messages/received', component: MessagesComponent},
   {path: '', component: AuthComponent},
   {path: '404', component: PageNotFoundComponent},
   {path: '**', redirectTo:'404', pathMatch:'full'}

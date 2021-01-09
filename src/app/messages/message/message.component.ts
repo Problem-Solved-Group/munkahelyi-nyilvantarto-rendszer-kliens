@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Message } from 'src/app/services/interfaces/message.interface';
 
 @Component({
   selector: 'app-message',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MessageComponent implements OnInit {
 
-  constructor() { }
+  @Input() message: Message = null;
+
+  constructor(public router: Router) { }
 
   ngOnInit(): void {
   }
