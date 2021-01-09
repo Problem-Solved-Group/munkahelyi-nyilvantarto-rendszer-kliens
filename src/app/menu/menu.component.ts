@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddmessageComponent } from '../messages/addmessage/addmessage.component';
+import { AuthService } from '../services/auth.service';
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -8,7 +10,9 @@ import { AddmessageComponent } from '../messages/addmessage/addmessage.component
 })
 export class MenuComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  constructor(
+    public dialog: MatDialog,
+    private as : AuthService) { }
 
   ngOnInit(): void {
   }
@@ -16,5 +20,8 @@ export class MenuComponent implements OnInit {
 
   openNewMessageDialog() {
     const dialogRef = this.dialog.open(AddmessageComponent, {width:'750px'});
+  }
+  logout() {
+    this.as.logout();
   }
 }
