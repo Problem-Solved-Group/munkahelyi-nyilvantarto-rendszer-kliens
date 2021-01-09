@@ -14,6 +14,12 @@ import { MenuComponent } from './menu/menu.component';
 import { RegistrationComponent } from './auth/registration/registration.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EditprofileComponent } from './profile/editprofile/editprofile.component';
+import { MessageComponent } from './messages/message/message.component';
+import { AnnouncementsComponent } from './announcements/announcements.component';
+import { AnnouncementComponent } from './announcements/announcement/announcement.component';
+import { AddEditannouncementsComponent } from './announcements/addeditannouncements/addeditannouncements.component';
+import { AddmessageComponent } from './messages/addmessage/addmessage.component';
+
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 //Materials
@@ -31,7 +37,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import {MatExpansionModule} from '@angular/material/expansion';
-import { MessageComponent } from './messages/message/message.component';
+import {MatSelectModule} from '@angular/material/select';
+import { WorkingtimesComponent } from './workingtimes/workingtimes.component';
+import { WorkingtimeComponent } from './workingtimes/workingtime/workingtime.component';
+import { AddeditworkingtimeComponent } from './workingtimes/addeditworkingtime/addeditworkingtime.component';
+
 
 
 @NgModule({
@@ -45,7 +55,14 @@ import { MessageComponent } from './messages/message/message.component';
     RegistrationComponent,
     ProfileComponent,
     EditprofileComponent,
-    MessageComponent
+    MessageComponent,
+    AnnouncementsComponent,
+    AnnouncementComponent,
+    AddEditannouncementsComponent,
+    AddmessageComponent,
+    WorkingtimesComponent,
+    WorkingtimeComponent,
+    AddeditworkingtimeComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,7 +85,8 @@ import { MessageComponent } from './messages/message/message.component';
     MatDialogModule,
     MatChipsModule,
     MatAutocompleteModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

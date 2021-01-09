@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AddmessageComponent } from '../messages/addmessage/addmessage.component';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -6,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
+  }
+
+
+  openNewMessageDialog() {
+    const dialogRef = this.dialog.open(AddmessageComponent, {width:'750px'});
   }
 }

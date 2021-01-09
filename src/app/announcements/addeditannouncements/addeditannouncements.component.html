@@ -1,0 +1,27 @@
+<h2>Hirdetmény módosítása</h2>
+<form [formGroup]="announcementForm" (ngSubmit)="editAnnouncement(announcementForm)" novalidate>
+	<div fxLayout="row wrap" fxLayoutAlign="start start">
+        <mat-form-field appearance="fill" fxFlex="100" aria-disabled="dis">
+			<mat-label>Hirdetmény címe</mat-label>
+			<input matInput type="text" placeholder="Cím" formControlName="name">
+            <mat-error>Mező kitöltése kötelező!</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" fxFlex="100">
+			<mat-label>Érvényesség vége</mat-label>
+			<input matInput type="datetime-local" placeholder="Érvényesség" formControlName="showUntil">
+			<mat-error>Mező kitöltése kötelező!</mat-error>
+		</mat-form-field>
+
+        <mat-form-field appearance="fill" fxFlex="100">
+			<mat-label>Hidetmény szövege</mat-label>
+			<textarea matInput rows="10" placeholder="Hirdetmény szövege..." formControlName="message"></textarea>
+			<mat-error>Mező kitöltése kötelező!</mat-error>
+		</mat-form-field>
+
+		<div>
+            <button mat-raised-button type="submit" color="accent">Módosítás</button>
+            <button mat-raised-button color="warn">Törlés</button>
+		</div>
+    </div>
+</form>

@@ -2,14 +2,19 @@
     <div class="menu-button-row">
         <div class="menu-flex-container">
             <div class="menu-button">
+                <button mat-mini-fab aria-label="Hirdetmények" routerLink="/announcements" routerLinkActive="active">
+                    <mat-icon>announcements</mat-icon>
+                </button>
+            </div>
+            <div class="menu-button">
                 <button mat-mini-fab aria-label="Szabadságnyilvántartás">
                     <mat-icon>calendar_today</mat-icon>
                 </button>
             </div>
         
             <div class="menu-button">
-                <button mat-mini-fab aria-label="Profil">
-                    <mat-icon>restore</mat-icon>
+                <button mat-mini-fab aria-label="Munkaidőnyilvántartás" routerLink="/workingtime" routerLinkActive="active">
+                    <mat-icon>schedule</mat-icon>
                 </button>
             </div>
         
@@ -48,7 +53,7 @@
         <mat-icon>undo</mat-icon>
         Fogadott
     </button>
-    <button mat-menu-item>
+    <button mat-menu-item (click)="openNewMessageDialog()">
         <mat-icon>add</mat-icon>
         Új üzenet küldése
     </button>
