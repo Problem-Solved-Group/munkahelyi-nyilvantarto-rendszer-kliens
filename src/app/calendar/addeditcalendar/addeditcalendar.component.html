@@ -1,0 +1,44 @@
+<mat-toolbar color="accent">Bejelentés</mat-toolbar>
+<mat-tab-group mat-strech-tabs mat-align-tabs="center" dynamicHeight>
+        <mat-tab label="Munkaidő">
+        <form [formGroup]="workingTimeForm" (ngSubmit)="newWorkingTime(workingTimeForm)">
+            <div class="form" fxLayout="row wrap" fxLayoutAlign="start start">
+                <mat-form-field appearance="fill" fxFlex="100">
+                    <mat-label>Dátum</mat-label>
+                    <input matInput type="date" formControlName="date">
+                    <mat-error>Mező kitöltése kötelező!</mat-error>
+                </mat-form-field>
+        
+                <mat-form-field appearance="fill" fxFlex="100">
+                    <mat-label>Kezdés időpontja</mat-label>
+                    <input matInput type="time" formControlName="start">
+                    <mat-error>Mező kitöltése kötelező!</mat-error>
+                </mat-form-field>
+        
+                <mat-form-field appearance="fill" fxFlex="100">
+                    <mat-label>Befejezés időpontja</mat-label>
+                    <input matInput type="time" formControlName="end">
+                    <mat-error>Mező kitöltése kötelező!</mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <button mat-raised-button type="submit" color="accent"><mat-icon>add</mat-icon>Bejelent</button>
+            </div>
+        </form>
+        </mat-tab>
+
+        <mat-tab *ngIf="wOrH===0" label="Szabadság">
+            <form [formGroup]="holidayRequestForm" (ngSubmit)="newHolidayRequest(holidayRequestForm)">
+                <div class="form" fxLayout="row wrap" fxLayoutAlign="start start">
+                    <mat-form-field appearance="fill" fxFlex="100">
+                        <mat-label>Dátum</mat-label>
+                        <input matInput type="date" formControlName="date">
+                        <mat-error>Mező kitöltése kötelező!</mat-error>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <button mat-raised-button type="submit" color="accent"><mat-icon>add</mat-icon>Bejelent</button>
+                </div>
+            </form>
+        </mat-tab>
+</mat-tab-group>

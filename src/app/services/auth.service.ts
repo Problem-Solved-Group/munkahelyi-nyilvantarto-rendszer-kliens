@@ -49,7 +49,7 @@ export class AuthService {
         localStorage.setItem('token', data['token']);
         this.isLogin$.next(true);
         this.ns.show('Sikeres bejelentkezés!');
-        this.router.navigate(['/messages/received']);
+        this.router.navigate(['/announcements']);
       },
       error => {
         this.ns.show('HIBA! Bejelentkezés sikertelen!');

@@ -13,3 +13,30 @@ mat-card-content {
 mat-card-content p{
     text-align: justify;
 }
+
+::ng-deep .announcement mat-card:first-child {
+    margin-top: 10px;
+    }
+
+::ng-deep .announcement div.mat-card-header-text {
+    margin-left: 0px;
+}
+
+::ng-deep .announcement div.mat-card-header-text .mat-card-title {
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+::ng-deep .announcement div.mat-card-header-text .mat-card-subtitle {
+    font-size: 1.1em;
+    font-style: italic;
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+::ng-deep .announcement div.mat-card-header-text .mat-card-subtitle:last-child {
+    font-style: normal;
+}
+
+::ng-deep .announcement div.mat-card-header-text span.label {
+    position: absolute;
+    margin: 2px 0px 2px 5px;
+}

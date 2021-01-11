@@ -25,5 +25,14 @@
                 </button>
             </mat-card-actions>
         </ng-container>
+            <span><mat-icon>email</mat-icon><span class="label">nev@mnyr.hu</span></span><br>
+            <span><mat-icon>schedule</mat-icon><span class="label">2020.2.20</span></span><br>
+            <span>
+                <mat-icon>domain</mat-icon><span class="label">Telephely(ek)</span>
+                <ul class="site-list">
+                    <li *ngFor="let i of ['Bp', 'Zeg']">{{i}}-i telephely</li>
+                </ul>
+            </span>
+        </mat-card-content>
     </mat-card>
 </div>

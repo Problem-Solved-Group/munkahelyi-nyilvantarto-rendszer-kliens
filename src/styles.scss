@@ -4,22 +4,28 @@ body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 	.wrapper {
 		width: 100%;
 		height: 100%;
 		margin: 0;
-		padding: 0;
+        padding: 0;
 	}	
 }
 
 .background {
+    min-height: calc(100vh - 84px);
     background: rgb(214,221,255);
-    background: -moz-radial-gradient(circle, rgba(214,221,255,1) 0%, rgba(255,255,255,1) 70%);
-    background: -webkit-radial-gradient(circle, rgba(214,221,255,1) 0%, rgba(255,255,255,1) 70%);
-    background: radial-gradient(circle, rgba(214,221,255,1) 0%, rgba(255,255,255,1) 70%);
+    background: -moz-radial-gradient(circle, rgba(214,221,255,1) 0%, rgba(200,200,200,1) 70%);
+    background: -webkit-radial-gradient(circle, rgba(214,221,255,1) 0%, rgba(200,200,200,1) 70%);
+    background: radial-gradient(circle, rgba(214,221,255,1) 0%, rgba(200,200,200,1) 70%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d6ddff",endColorstr="#ffffff",GradientType=1);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
+
 
 .box-shadow {
     box-shadow: 5px 5px 5px #c1c1c1;
@@ -56,4 +62,8 @@ section.menu {
 
 div.toggle-menu {
     margin-top: 5px;
+}
+
+.container {
+    padding-top: 84px;
 }

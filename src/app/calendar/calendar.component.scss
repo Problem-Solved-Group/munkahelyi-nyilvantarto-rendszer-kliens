@@ -1,0 +1,116 @@
+.header {
+    margin: 25px 30px;
+}
+.header p {
+    font-size: 1.5em;
+    font-weight: bold;
+    letter-spacing: 5px;
+}
+div.calendar table {
+    margin-top: 25px;
+    border-spacing: 0px;
+    border: 2px solid black;
+    border-radius: 25px;
+    width: 100%;
+    table-layout: fixed;
+}
+
+div.workinglist table,
+div.holidayrequest table {
+    border-spacing: 0px;
+    border: 2px solid black;
+    border-radius: 25px;
+    width: 100%;
+    table-layout: fixed;
+}
+
+div.calendar table tr th,
+div.workinglist table tr th,
+div.holidayrequest table tr th {
+    border-bottom:2px solid black;
+    border-left: 1px solid rgb(150,150,150);
+    border-right: 1px solid rgb(150,150,150);
+    font-size: 1.3rem;
+}
+
+div.calendar table tr td {
+    border-left: 1px solid rgb(150,150,150);
+    border-right: 1px solid rgb(150,150,150);
+    border-top: 1px solid rgb(200,200,200);
+    border-bottom: 1px solid rgb(200,200,200);
+    padding: 0;
+}
+
+div.workinglist table tr td,
+div.holidayrequest table tr td {
+    border-bottom: 1px solid rgb(200,200,200);
+    text-align: center;
+    padding: 10px 0;
+}
+
+div.calendar table tr:nth-child(2) td,
+div.workinglist table tr:nth-child(2) td,
+div.holidayrequest table tr:nth-child(2) td {
+    border-top: none;
+}
+
+
+div.calendar table tr:last-child td,
+div.workinglist table tr:last-child td,
+div.holidayrequest table tr:last-child td {
+    border-bottom: none;
+}
+
+div.calendar table tr:first-child th:first-child,
+div.calendar table tr:last-child td:first-child,
+div.calendar table tr td:first-child,
+div.workinglist table tr:first-child th:first-child,
+div.workinglist table tr:last-child td:first-child,
+div.workinglist table tr td:first-child,
+div.holidayrequest table tr:first-child th:first-child,
+div.holidayrequest table tr:last-child td:first-child,
+div.holidayrequest table tr td:first-child {
+    border-left: none;
+}
+
+div.calendar table tr:first-child th:last-child,
+div.calendar table tr:last-child td:last-child,
+div.calendar table tr td:last-child,
+div.workinglist table tr:first-child th:last-child,
+div.workinglist table tr:last-child td:last-child,
+div.workinglist table tr td:last-child,
+div.holidayrequest table tr:first-child th:last-child,
+div.holidayrequest table tr:last-child td:last-child,
+div.holidayrequest table tr td:last-child {
+    border-right: none;
+}
+
+div.calendar table tr td div,
+div.workinglist table tr td div {
+    height: 100%;
+    padding: 20px 0;
+    text-align: center;
+}
+
+div.calendar .today {
+    background: rgb(214,221,255);
+    background: -moz-radial-gradient(circle, rgba(114,121,155,1) 0%, rgba(255,255,255,1) 30%);
+    background: -webkit-radial-gradient(circle, rgba(114,121,155,1) 0%, rgba(255,255,255,1) 30%);
+    background: radial-gradient(circle, rgba(114,121,155,1) 0%, rgba(255,255,255,1) 30%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d6ddff",endColorstr="#ffffff",GradientType=1);
+}
+
+div.workinglist {
+    margin-top: 25px;
+}
+
+div.workinglist h2 {
+    margin-left: 20px;
+}
+
+
+div.workinglist table tr td:last-child button,
+div.holidayrequest table tr td:last-child button {
+    margin-left: 5px;
+    margin-right: 5px;
+}

@@ -2,6 +2,10 @@
     <mat-card-header>
          <mat-card-title>{{announcement.title}}</mat-card-title>
          <mat-card-subtitle>Írta: {{announcement.user.name}}, érvényes {{ announcement.showUntil }}-ig</mat-card-subtitle>
+    <mat-card-header id="announcement-header">
+         <mat-card-title>Hirdetmény címe</mat-card-title>
+         <mat-card-subtitle><span><mat-icon>schedule</mat-icon><span class="label">Érvényessége</span></span></mat-card-subtitle>
+         <mat-card-subtitle><span><mat-icon>account_circle</mat-icon><span class="label">Szerője</span></span></mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
         <p>{{announcement.message}}</p>

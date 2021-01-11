@@ -2,30 +2,37 @@
     <div class="menu-button-row">
         <div class="menu-flex-container">
             <div class="menu-button">
-                <button mat-mini-fab aria-label="Hirdetmények" routerLink="/announcements" routerLinkActive="active">
+                <button mat-mini-fab aria-label="Hirdetmények" routerLink="/announcements" routerLinkActive="active" matTooltip="Hirdetmények">
                     <mat-icon>announcements</mat-icon>
                 </button>
             </div>
+        
             <div class="menu-button">
-                <button mat-mini-fab aria-label="Szabadságnyilvántartás">
+                <button mat-mini-fab aria-label="Naptár" routerLink="/calendar" routerLinkActive="active" matTooltip="Naptár">
                     <mat-icon>calendar_today</mat-icon>
                 </button>
             </div>
         
             <div class="menu-button">
-                <button mat-mini-fab aria-label="Munkaidőnyilvántartás" routerLink="/workingtime" routerLinkActive="active">
-                    <mat-icon>schedule</mat-icon>
+                <button mat-mini-fab aria-label="Naptár" [matMenuTriggerFor]="calendarMenu" matTooltip="Naptár">
+                    <mat-icon>calendar_today</mat-icon>
                 </button>
             </div>
-        
+
             <div class="menu-button">
-                <button mat-mini-fab aria-label="Üzenetek" [matMenuTriggerFor]="messagesMenu">
+                <button mat-mini-fab aria-label="Üzenetek" [matMenuTriggerFor]="messagesMenu" matTooltip="Üzenetek">
                     <mat-icon>chat</mat-icon>
                 </button>
             </div>    
         
             <div class="menu-button">
-                <button mat-mini-fab aria-label="Profil" [matMenuTriggerFor]="profileMenu">
+                <button mat-mini-fab aria-label="Alkalmazottak" routerLink="/members" routerLinkActive="active" matTooltip="Alkalmazottak">
+                    <mat-icon>supervisor_account</mat-icon>
+                </button>
+            </div>
+
+            <div class="menu-button">
+                <button mat-mini-fab aria-label="Profil" [matMenuTriggerFor]="profileMenu" matTooltip="Profil">
                     <mat-icon>account_circle</mat-icon>
                 </button>
             </div>
@@ -56,5 +63,16 @@
     <button mat-menu-item (click)="openNewMessageDialog()">
         <mat-icon>add</mat-icon>
         Új üzenet küldése
+    </button>
+</mat-menu>
+
+<mat-menu #calendarMenu="matMenu">
+    <button mat-menu-item routerLink="/calendar" routerLinkActive="active">
+        <mat-icon>calendar_today</mat-icon>
+        Naptár
+    </button>
+    <button mat-menu-item routerLink="/unseen" routerLinkActive="active">
+        <mat-icon>pending</mat-icon>
+        Kérlmek elbírálása
     </button>
 </mat-menu>

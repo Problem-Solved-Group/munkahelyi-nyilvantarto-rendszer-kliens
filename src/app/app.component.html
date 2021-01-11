@@ -1,12 +1,12 @@
-<div class="wrapper background" *ngIf="router.url !== '/' && router.url !=='/404'; else authpanel">
+<div class="wrapper" *ngIf="router.url !== '/' && router.url !=='/404'; else authpanel">
   <mat-toolbar color="primary" class="navbar box-shadow">
     <mat-toolbar-row>
-      <span>Munkahelyi Nyilvántartó Rendszer</span>
+      <span class="headertext" routerLink="/announcements" routerLinkActive="active">Munkahelyi Nyilvántartó Rendszer</span>
       <span class="menu-spacer"></span>
       <app-menu></app-menu>
     </mat-toolbar-row>
   </mat-toolbar>
-  <main class="container">
+  <main class="container background">
     <router-outlet></router-outlet>
   </main>
 </div>
