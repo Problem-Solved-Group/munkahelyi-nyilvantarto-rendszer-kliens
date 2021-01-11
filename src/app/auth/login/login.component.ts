@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
 
   signin(form: FormGroup): void {
     if (form.valid) {
-      console.log(form.value);
       this.as.login(<any>form.value);
     }
     else {

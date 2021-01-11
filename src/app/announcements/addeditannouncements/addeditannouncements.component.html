@@ -1,9 +1,9 @@
 <h2>Hirdetmény módosítása</h2>
-<form [formGroup]="announcementForm" (ngSubmit)="editAnnouncement(announcementForm)" novalidate>
+<form [formGroup]="announcementForm" novalidate>
 	<div fxLayout="row wrap" fxLayoutAlign="start start">
         <mat-form-field appearance="fill" fxFlex="100" aria-disabled="dis">
 			<mat-label>Hirdetmény címe</mat-label>
-			<input matInput type="text" placeholder="Cím" formControlName="name">
+			<input matInput type="text" placeholder="Cím" formControlName="title">
             <mat-error>Mező kitöltése kötelező!</mat-error>
         </mat-form-field>
 
@@ -14,14 +14,20 @@
 		</mat-form-field>
 
         <mat-form-field appearance="fill" fxFlex="100">
-			<mat-label>Hidetmény szövege</mat-label>
+			<mat-label>Hirdetmény szövege</mat-label>
 			<textarea matInput rows="10" placeholder="Hirdetmény szövege..." formControlName="message"></textarea>
 			<mat-error>Mező kitöltése kötelező!</mat-error>
 		</mat-form-field>
 
 		<div>
-            <button mat-raised-button type="submit" color="accent">Módosítás</button>
-            <button mat-raised-button color="warn">Törlés</button>
+			<ng-container *ngIf="!data">
+				<button mat-raised-button color="accent" (click)="createAnnouncement(announcementForm)">Létrehozás</button>
+			</ng-container>
+			
+			<ng-container *ngIf="!!data">
+				<button mat-raised-button color="accent" (click)="editAnnouncement(announcementForm)">Módosítás</button>
+				<button mat-raised-button color="warn" (click)="deleteAnnouncement()" >Törlés</button>
+			</ng-container>
 		</div>
     </div>
 </form>

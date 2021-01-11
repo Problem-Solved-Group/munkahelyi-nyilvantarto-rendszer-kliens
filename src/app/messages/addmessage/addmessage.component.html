@@ -10,12 +10,11 @@
         <mat-form-field appearance="fill" fxFlex="100">
 			<mat-label>Címzett</mat-label>
 			<mat-select formControlName="receiver">
-				<mat-option value="1">Admin</mat-option>
-				<mat-option value="2">Leader</mat-option>
-				<mat-option value="3">Worker</mat-option>
+				<ng-container *ngFor="let user of (ps.allUser$ | async)">
+					<mat-option [value]="user.username">{{user.username}} ({{user.name}})</mat-option>
+				</ng-container>
 			</mat-select>
 		</mat-form-field>
-
         <mat-form-field appearance="fill" fxFlex="100">
 			<mat-label>Üzenet szövege</mat-label>
 			<textarea matInput rows="10" placeholder="Üzenet szövege..." formControlName="message"></textarea>

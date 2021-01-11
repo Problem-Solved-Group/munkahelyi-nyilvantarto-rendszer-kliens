@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ProfileService } from '../services/profile.service';
 import { EditprofileComponent } from './editprofile/editprofile.component';
 
 @Component({
@@ -9,7 +10,7 @@ import { EditprofileComponent } from './editprofile/editprofile.component';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(public dialog : MatDialog) { }
+  constructor(public dialog : MatDialog,public ps : ProfileService) { }
 
   ngOnInit(): void {
   }

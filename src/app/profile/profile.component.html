@@ -2,25 +2,28 @@
     <mat-card fxFlex="50">
         <mat-card-header>
             <div mat-card-avatar class="profile-avatar"></div>
-             <mat-card-title>Név</mat-card-title>
-             <mat-card-subtitle>Beosztás</mat-card-subtitle>
+             <mat-card-title>{{ ps.currentUser$.value.name}}</mat-card-title>
+             <mat-card-subtitle>{{ ps.currentUser$.value.role.split('_')[1] }}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
-            <span><b>E-mail:</b> admin@admin.hu</span>
+            <span><b>E-mail:</b>{{ps.currentUser$.value.email}}</span>
             <br>
             <span>
                 <b>Telephelyek:</b>
                 <ul>
-                    <li>Első telephely</li>
-                    <li>Második telephely</li>
-                </ul>
+                    <ng-container *ngFor="let site of ps.currentUser$.value.sites">
+                        <li>{{site.name}} ({{site.location}})</li>
+                    </ng-container>
+                </ul> 
             </span>
         </mat-card-content>
-        <mat-card-actions>
-            <button mat-mini-fab color="accent" matTooltip="Szerkesztés" class="profile-edit" (click)="openEditDialog()">
-                <mat-icon>settings</mat-icon>
-                Csak adminnál
-            </button>
-        </mat-card-actions>
+        <ng-container *ngIf="ps.currentUser$.value.role === 'ROLE_ADMIN'">
+            <mat-card-actions>
+                <button mat-mini-fab color="accent" matTooltip="Szerkesztés" class="profile-edit" (click)="openEditDialog()">
+                    <mat-icon>settings</mat-icon>
+                    Csak adminnál
+                </button>
+            </mat-card-actions>
+        </ng-container>
     </mat-card>
 </div>

@@ -1,24 +1,18 @@
 <div fxLayoutAlign="center center" fxFlexFill>
     <mat-card fxFlex="80">
         <mat-toolbar>Hirdetmények
-            <button mat-mini-fab color="primary" class="new-announcement" (click)="openAddAnouncementDialog()">
-                <mat-icon>add</mat-icon>
-                Csak adminnál
-            </button>
+            <ng-container *ngIf="isUserAllowedToCreate()">
+                <button mat-mini-fab color="primary" class="new-announcement" (click)="openAddAnouncementDialog()">
+                    <mat-icon>add</mat-icon>
+                </button>
+            </ng-container>
         </mat-toolbar>
         <mat-card-content>
-            <div class="announcement">
-                <app-announcement></app-announcement>
-            </div>
-            <div class="announcement">
-                <app-announcement></app-announcement>
-            </div>
-            <div class="announcement">
-                <app-announcement></app-announcement>
-            </div>
-            <div class="announcement">
-                <app-announcement></app-announcement>
-            </div>
+            <ng-container *ngFor="let item of (ass.announcements$ | async);">
+                <div class="announcement">
+                    <app-announcement [announcement]="item"></app-announcement>
+                </div>
+            </ng-container>
         </mat-card-content>
     </mat-card>
 </div>

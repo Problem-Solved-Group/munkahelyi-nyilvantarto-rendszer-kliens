@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 import { Message } from "./interfaces/message.interface";
 import { baseUrl } from 'src/environments/environment';
+import { NotificationService } from "./notification.service";
 
 @Injectable({
     providedIn: 'root'
@@ -11,7 +12,8 @@ export class MessageService{
     public sentMessages$ = new BehaviorSubject<Message[]>([]);
     public receivedMessages$ = new BehaviorSubject<Message[]>([]);
     
-    constructor(private http: HttpClient){
+    constructor(private http: HttpClient 
+        , private ns : NotificationService){
 
     }
 
@@ -28,6 +30,24 @@ export class MessageService{
         .subscribe(m => {
             this.receivedMessages$.next(m);
         });
+    }
+    
+    sendMessage(message:Message) {
+        this.http.post<Message>(`${baseUrl}/messages`, message, {headers: this.generateHeader()})
+        .subscribe(
+            ni => {
+                this.sentMessages$.next(this.sentMessages$.getValue().concat([ni]));
+                this.ns.show('Üzenet sikeresen elküldve!');
+            },
+            error => {
+                this.ns.show('HIBA! Sikertelen üzenetküldés!');
+                console.error(error);
+            }
+        );
+    }
+
+    setSeen(message:Message) {
+
     }
 
     generateHeader() {
