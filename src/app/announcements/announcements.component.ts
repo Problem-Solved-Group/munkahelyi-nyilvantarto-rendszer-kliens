@@ -25,6 +25,6 @@ export class AnnouncementsComponent implements OnInit {
   }
 
   isUserAllowedToCreate() {
-    return this.ps.currentUser$["role"] !== "ROLE_WORKER";
+    return this.ps.currentUser$.value?.role !== "ROLE_WORKER";
   }
 }

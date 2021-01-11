@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { HolidayrequestService } from '../services/holidayrequest.service';
+import { HolidayRquest } from '../services/interfaces/holidayrequest.interface';
+import { WorkingTime } from '../services/interfaces/workingtime.interface';
+import { WorkingtimeService } from '../services/workingtime.service';
 import { AddeditcalendarComponent } from './addeditcalendar/addeditcalendar.component';
 
 
@@ -32,7 +36,7 @@ export class CalendarComponent implements OnInit {
   dateTable: TempDate[][];
 
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog, public wt: WorkingtimeService, public hr: HolidayrequestService) {
     this.now = new Date();
     this.today = {year: this.now.getFullYear(), month: this.now.getMonth()+1, day: this.now.getDate()};
 
@@ -48,18 +52,12 @@ export class CalendarComponent implements OnInit {
         this.dateTable = this.generateDateTable(this.current);
       }
     },300000)
+
+    this.wt.getAvailableWorkingTimes();
+    this.hr.getAvailableHolidayRequest();
   }
 
   ngOnInit(): void {
-  }
-
-
-  onButtonClick(year: number, month: number, day: number) {
-    const dialogRef = this.dialog.open(AddeditcalendarComponent, {width:'500px', data: {calendar: {year:year, month:month, day:day}}});
-  }
-
-  onModWTClick() {
-    const dialogRef = this.dialog.open(AddeditcalendarComponent, {width:'500px', data: {wt: {date: new Date()}}});
   }
 
   changeMonth(change: number) {
@@ -93,5 +91,21 @@ export class CalendarComponent implements OnInit {
 
   changeCurrentMonth(date : Date) : TempMonth {
     return {year: date.getFullYear(), prev: this.months[date.getMonth()-1<0 ? 11 :date.getMonth()-1], curr: this.months[date.getMonth()], next: this.months[date.getMonth()+1>11 ? 0 :date.getMonth()+1]};
+  }
+
+
+  onButtonClick(year: number, month: number, day: number) {
+    const dialogRef = this.dialog.open(AddeditcalendarComponent, {width:'500px', data: {calendar: {year:year, month:month, day:day}}});
+  }
+
+  onModWTClick(workingTime: WorkingTime) {
+    const dialogRef = this.dialog.open(AddeditcalendarComponent, {width:'500px', data: {wt: {date: workingTime}}});
+  }
+  onDeleteWTClick(workingTime: WorkingTime) {
+    this.wt.deleteWorkingTime(workingTime.id)
+  }
+
+  onDeleteHRClick(holidayRequest : HolidayRquest) {
+    this.hr.deleteHolidayRequest(holidayRequest.id);
   }
 }

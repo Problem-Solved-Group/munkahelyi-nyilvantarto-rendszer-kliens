@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddmessageComponent } from '../messages/addmessage/addmessage.component';
 import { AuthService } from '../services/auth.service';
 import { MessageService } from '../services/message.service';
+import { ProfileService } from '../services/profile.service';
 
 @Component({
   selector: 'app-menu',
@@ -14,10 +15,12 @@ export class MenuComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private as : AuthService,
-    public ms: MessageService) { }
-
+    public ms: MessageService, 
+    public ps: ProfileService) 
+  {}
+  
   ngOnInit(): void {
-    
+    this.ps.getCurrentUser();
   }
 
   getUnseenMessages() : number {
@@ -28,5 +31,9 @@ export class MenuComponent implements OnInit {
   }
   logout() {
     this.as.logout();
+  }
+
+  isUserAllowedToAdminPage() {
+    return this.ps.currentUser$.value?.role !== "ROLE_WORKER";
   }
 }

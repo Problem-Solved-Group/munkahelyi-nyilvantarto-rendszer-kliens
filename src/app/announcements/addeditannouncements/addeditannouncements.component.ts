@@ -41,6 +41,7 @@ export class AddEditannouncementsComponent implements OnInit {
   createAnnouncement(announcementForm : FormGroup) {
     const now = Date.now();
     if(announcementForm.valid && Date.parse(announcementForm.value.showUntil) > now) {
+      console.log(announcementForm.value);
       this.ass.createAnnouncement(announcementForm.value);
       setTimeout(() => {this.dialogRef.close();},500);
     }

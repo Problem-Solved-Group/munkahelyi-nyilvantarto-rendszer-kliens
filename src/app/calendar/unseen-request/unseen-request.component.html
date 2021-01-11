@@ -1,13 +1,13 @@
 <div fxLayoutAlign="center center" fxFlexFill>
     <mat-card fxFlex="80">
-        <mat-toolbar><span class="menu-spacer"></span>Kérelmek elbírálása<span class="menu-spacer"></span></mat-toolbar>
+        <mat-toolbar><span class="menu-spacer"></span>Kérelmek elbírálása ({{dateGroup.value['day']}})<span class="menu-spacer"></span></mat-toolbar>
         <mat-tab-group mat-strech-tabs mat-align-tabs="center" dynamicHeight>
             <mat-tab label="Munkaidő">
                 <div class="workinglist">
                     <form [formGroup]="dateGroup" (submit)="list(dateGroup)">
-                        <mat-form-field appearance="fill" fxFlex="10">
+                        <mat-form-field appearance="fill" fxFlex="15">
                             <mat-label>Dátum</mat-label>
-                            <input matInput type="date" formControlName="date">
+                            <input matInput type="date" formControlName="day">
                             <mat-error>Mező kitöltése kötelező!</mat-error>
                         </mat-form-field>
                         <div>
@@ -27,21 +27,16 @@
                             <th>Befejezés időpontja</th>
                             <th>Műveletek</th>
                         </tr>
-                        <tr>
-                            <td>Worker</td>
-                            <td>
-                                2020.01.10
-                            </td>
-                            <td>
-                                8:01
-                            </td>
-                            <td>
-                                18:13
-                            </td>
-                            <td>
-                                <button mat-mini-fab color="primary"><mat-icon>done</mat-icon></button>
-                                <button mat-mini-fab color="warn"><mat-icon>clear</mat-icon></button>
-                            </td>
+                        <tr *ngFor="let item of (wt.workingtimes$ |async)">
+                            <ng-container *ngIf="item.validated !== true">
+                                <td>{{item.user.name}}</td>
+                                <td>{{item.start}}</td>
+                                <td>{{item.start}}</td>
+                                <td>{{item.end}}</td>
+                                <td>
+                                    <button mat-mini-fab color="primary" (click)="validateWT(item)"><mat-icon>done</mat-icon></button>
+                                </td>
+                            </ng-container>
                         </tr>
                     </table>
                     <div class="header" fxLayout="row" fxLayoutAlign="space-around center" >
@@ -55,24 +50,14 @@
                             <th>Dátum</th>
                             <th>Kezdés időpontja</th>
                             <th>Befejezés időpontja</th>
-                            <th>Státusz</th>
                         </tr>
-                        <tr>
-                            <td>
-                                Worker
-                            </td>
-                            <td>
-                                2020.01.10
-                            </td>
-                            <td>
-                                8:01
-                            </td>
-                            <td>
-                                18:13
-                            </td>
-                            <td>
-                                Nem ellenőrzött
-                            </td>
+                        <tr *ngFor="let item of (wt.workingtimes$ |async)">
+                            <ng-container *ngIf="item.validated === true">
+                                <td>{{item.user.name}}</td>
+                                <td>{{item.start}}</td>
+                                <td>{{item.start}}</td>
+                                <td>{{item.end}}</td>
+                            </ng-container>
                         </tr>
                     </table>
                 </div>
@@ -80,9 +65,9 @@
             <mat-tab label="Szabadság">
                 <div class="holidayrequest">
                     <form [formGroup]="dateGroup" (submit)="list(dateGroup)">
-                        <mat-form-field appearance="fill" fxFlex="10">
+                        <mat-form-field appearance="fill" fxFlex="15">
                             <mat-label>Dátum</mat-label>
-                            <input matInput type="date" formControlName="date">
+                            <input matInput type="date" formControlName="day">
                             <mat-error>Mező kitöltése kötelező!</mat-error>
                         </mat-form-field>
                         <div>
@@ -100,15 +85,15 @@
                             <th>Kért nap</th>
                             <th>Műveletek</th>
                         </tr>
-                        <tr>
-                            <td>Worker</td>
-                            <td>
-                                2020.12.24
-                            </td>
-                            <td>
-                                <button mat-mini-fab color="primary"><mat-icon>done</mat-icon></button>
-                                <button mat-mini-fab color="warn"><mat-icon>clear</mat-icon></button>
-                            </td>
+                        <tr *ngFor="let item of (hr.holidayrequest$ |async)">
+                            <ng-container *ngIf="item.status==='UNSEEN'">
+                                <td>{{item.user.name}}</td>
+                                <td>{{item.requestedDay}}</td>
+                                <td>
+                                    <button mat-mini-fab color="primary" (click)="evaluate(item.id, true)"><mat-icon>done</mat-icon></button>
+                                    <button mat-mini-fab color="warn" (click)="evaluate(item.id, false)"><mat-icon>clear</mat-icon></button>
+                                </td>
+                            </ng-container>
                         </tr>
                     </table>
                     <div class="header" fxLayout="row" fxLayoutAlign="space-around center" >
@@ -120,12 +105,14 @@
                         <tr>
                             <th>Név</th>
                             <th>Kért nap</th>
+                            <th>Státusz</th>
                         </tr>
-                        <tr>
-                            <td>Worker</td>
-                            <td>
-                                2020.12.24
-                            </td>
+                        <tr *ngFor="let item of (hr.holidayrequest$ |async)">
+                            <ng-container *ngIf="item.status!=='UNSEEN'">
+                                <td>{{item.user.name}}</td>
+                                <td>{{item.requestedDay}}</td>
+                                <td>{{item.status}}</td>
+                            </ng-container>
                         </tr>
                     </table>
                 </div>

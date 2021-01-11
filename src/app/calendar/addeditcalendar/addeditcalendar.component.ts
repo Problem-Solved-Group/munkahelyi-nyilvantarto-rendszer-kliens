@@ -1,6 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { HolidayrequestService } from 'src/app/services/holidayrequest.service';
+import { WorkingTime } from 'src/app/services/interfaces/workingtime.interface';
+import { WorkingtimeService } from 'src/app/services/workingtime.service';
 
 interface TempDate {
   year: number;
@@ -23,7 +26,8 @@ export class AddeditcalendarComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<AddeditcalendarComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    public wt: WorkingtimeService, public hr: HolidayrequestService
   ) {
     if(data.calendar) {
       this.wOrH = 0;
@@ -36,16 +40,19 @@ export class AddeditcalendarComponent implements OnInit {
       });
 
       this.holidayRequestForm = this.formBuilder.group({
-        date: [{value:this.dateString,disabled:true}, Validators.required]
+        requestedDay: [{value:this.dateString,disabled:true}, Validators.required]
       });
     }
     if(data.wt) {
       this.wOrH = 1;
-      let date:Date = data.wt.date;
+      let workingTime : WorkingTime = data.wt;
+      let date = workingTime.start.split(" ")[0];
+      let startDate = workingTime.start.split(" ")[1];
+      let endDate = workingTime.end.split(" ")[1];
       this.workingTimeForm = this.formBuilder.group({
-        date: [{value:date.getFullYear()+"-"+this.expand(date.getMonth()+1)+"-"+this.expand(date.getDate()),disabled:true}, Validators.required],
-        start: [this.expand(date.getHours())+":"+this.expand(date.getMinutes()), Validators.required],
-        end: [this.expand(date.getHours())+":"+this.expand(date.getMinutes()), Validators.required]
+        date: [{value:date,disabled:true}, Validators.required],
+        start: [startDate, Validators.required],
+        end: [endDate, Validators.required]
       });
     }
   }
@@ -60,16 +67,20 @@ export class AddeditcalendarComponent implements OnInit {
 
 
   newWorkingTime(wF : FormGroup) {
-    console.log(wF);
+    console.log(wF.value);
     if(wF.valid) {
-      wF.value['start'] = this.dateString+"T"+wF.value['start'];
-      wF.value['end'] = this.dateString+"T"+wF.value['end'];
+      wF.value['start'] = this.dateString+" "+wF.value['start']+":00";
+      wF.value['end'] = this.dateString+" "+wF.value['end']+":00";
+      console.log(wF.value);
+      this.wt.createWorkingTime(wF.value);
       setTimeout(() => {this.dialogRef.close();},500);
     }
   }
 
   newHolidayRequest(hrF: FormGroup) {
     console.log(hrF.value);
+    hrF.value['requestedDay'] = hrF.value['requestedDay']+" 00:00:00";
+    this.hr.createHolidayRequest(hrF.value);
     setTimeout(() => {this.dialogRef.close();},500);
   }
 }
