@@ -1,0 +1,29 @@
+<div fxLayoutAlign="center center" fxFlexFill>
+    <mat-card fxFlex="80">
+        <mat-toolbar><span class="menu-spacer"></span>Alkalmazottak<span class="menu-spacer"></span></mat-toolbar>
+        <div class="card-container" fxLayout="row wrap" fxLayoutGap="16px grid">
+            <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.md="33%" *ngFor="let num of [1,2,3,4,5,6,7]">
+                <mat-card class="mat-elevation-z4">
+                    <mat-card-header>
+                        <div mat-card-avatar class="profile-avatar"></div>
+                        <mat-card-title>Név {{num}}</mat-card-title>
+                        <mat-card-subtitle>Beosztás {{num}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <span><mat-icon>email</mat-icon><span class="label">nev{{num}}@mnyr.hu</span></span><br>
+                        <span><mat-icon>schedule</mat-icon><span class="label">2020.{{num}}.{{num*2}}</span></span><br>
+                        <span>
+                            <mat-icon>domain</mat-icon><span class="label">Telephely(ek)</span>
+                            <ul class="site-list">
+                                <li *ngFor="let i of [1,2,3,4,5,6,7,8]">Telephely {{i}}</li>
+                            </ul>
+                        </span>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button mat-mini-fab class="profile-edit" color="accent" (click)="openEditDialog()"><mat-icon>settings</mat-icon></button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+    </mat-card>
+</div>

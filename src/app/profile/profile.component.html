@@ -6,21 +6,14 @@
              <mat-card-subtitle>Beosztás</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
-            <span><b>E-mail:</b> admin@admin.hu</span>
-            <br>
+            <span><mat-icon>email</mat-icon><span class="label">nev@mnyr.hu</span></span><br>
+            <span><mat-icon>schedule</mat-icon><span class="label">2020.2.20</span></span><br>
             <span>
-                <b>Telephelyek:</b>
-                <ul>
-                    <li>Első telephely</li>
-                    <li>Második telephely</li>
+                <mat-icon>domain</mat-icon><span class="label">Telephely(ek)</span>
+                <ul class="site-list">
+                    <li *ngFor="let i of ['Bp', 'Zeg']">{{i}}-i telephely</li>
                 </ul>
             </span>
         </mat-card-content>
-        <mat-card-actions>
-            <button mat-mini-fab color="accent" matTooltip="Szerkesztés" class="profile-edit" (click)="openEditDialog()">
-                <mat-icon>settings</mat-icon>
-                Csak adminnál
-            </button>
-        </mat-card-actions>
     </mat-card>
 </div>

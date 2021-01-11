@@ -15,38 +15,18 @@
 
 		<mat-form-field appearance="fill" fxFlex="100">
 			<mat-label>Beosztás</mat-label>
-			<mat-select formControlName="receiver">
+			<mat-select formControlName="role">
 				<mat-option value="ROLE_ADMIN">Admin</mat-option>
 				<mat-option value="ROLE_LEADER">Vezető</mat-option>
 				<mat-option value="ROLE_WORKER">Alkalmazott</mat-option>
 			</mat-select>
 		</mat-form-field>
-			<h2>Ide jön majd a telephely választás</h2>
-        <!--<mat-form-field appearance="fill" fxFlex="100">
-			<mat-chip-list #chipList aria-label="Site selection">
-				<mat-chip
-					*ngFor="let site of sites"
-					[selectable]="true"
-					[removable]="false"
-				>
-				{{ site }}
-				</mat-chip>
-				<input
-					placeholder="Telephelyek"
-					#sitesInput
-					[formControl]="siteCtrl"
-					[matAutocomplete]="auto"
-					[matChipInputFor]="chipList"
-					[matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-					(matChipInputTokenEnd)="addSite($event)"
-				>
-			</mat-chip-list>
-			<mat-autocomplete #auto="matAutocomplete" (optionSelected)="siteSelected($event)">
-				<mat-option *ngFor="let site of filteredSites | async" [value]="site">
-					{{ site }}
-				</mat-option>
-			</mat-autocomplete>
-		</mat-form-field>-->
+		<mat-form-field appearance="fill" fxFlex="100">
+			<mat-label>Telephelyek</mat-label>
+			<mat-select formControlName="site" multiple>
+				<mat-option *ngFor="let num of [1,2,3,4,5,6]" [value]="num">Telephely {{num}}</mat-option>
+			</mat-select>
+		</mat-form-field>
 		<div>
 			<button mat-raised-button type="submit" color="accent">Módosítás</button>
 		</div>

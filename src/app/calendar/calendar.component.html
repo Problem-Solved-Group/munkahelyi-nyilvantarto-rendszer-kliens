@@ -1,0 +1,90 @@
+<div fxLayoutAlign="center center" fxFlexFill>
+    <mat-card fxFlex="80">
+        <mat-toolbar><span class="menu-spacer"></span>Nyilvántartás<span class="menu-spacer"></span></mat-toolbar>
+        <mat-card-content>
+            <div class="calendar">
+                <div class="header" fxLayout="row" fxLayoutAlign="space-around center" >
+                    <button mat-raised-button (click)="changeMonth(-1)"><mat-icon>keyboard_arrow_left</mat-icon>{{currentMonths.prev}}</button>
+                    <div class="menu-spacer"></div>
+                    <p>{{currentMonths.year}}. {{currentMonths.curr}}</p>
+                    <div class="menu-spacer"></div>
+                    <button mat-raised-button (click)="changeMonth(1)">{{currentMonths.next}}<mat-icon>keyboard_arrow_right</mat-icon></button>
+                </div>
+                <table>
+                    <tr>
+                        <th *ngFor="let day of days">{{day}}</th>
+                    </tr>
+                    <tr *ngFor="let week of dateTable">
+                        <td *ngFor="let day of week">
+                            <div *ngIf="day" [ngClass]="{'today' : day.year === today.year && day.month === today.month && day.day === today.day}">
+                                <button mat-mini-fab (click)="onButtonClick(day.year, day.month, day.day)" >{{day.day}}</button>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="workinglist">
+                <div class="header" fxLayout="row" fxLayoutAlign="space-around center" >
+                    <div class="menu-spacer"></div>
+                    <p>Bejelentett munkaidők</p>
+                    <div class="menu-spacer"></div>
+                </div>
+                <table>
+                    <tr>
+                        <th>Dátum</th>
+                        <th>Kezdés időpontja</th>
+                        <th>Befejezés időpontja</th>
+                        <th>Státusz</th>
+                        <th>Műveletek</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            2020.01.10
+                        </td>
+                        <td>
+                            8:01
+                        </td>
+                        <td>
+                            18:13
+                        </td>
+                        <td>
+                            Nem ellenőrzött
+                        </td>
+                        <td>
+                            <button mat-mini-fab (click)="onModWTClick()"><mat-icon>settings</mat-icon></button>
+                            <button mat-mini-fab color="primary"><mat-icon>done</mat-icon></button>
+                            <button mat-mini-fab color="warn"><mat-icon>clear</mat-icon></button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="holidayrequest">
+                <div class="header" fxLayout="row" fxLayoutAlign="space-around center" >
+                    <div class="menu-spacer"></div>
+                    <p>Bejelentett szabadságkérelmek</p>
+                    <div class="menu-spacer"></div>
+                </div>
+                <table>
+                    <tr>
+                        <th>Kért nap</th>
+                        <th>Státusz</th>
+                        <th>Műveletek</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            2020.12.24
+                        </td>
+                        <td>
+                            Nem ellenőrzött
+                        </td>
+                        <td>
+                            <button mat-mini-fab><mat-icon>settings</mat-icon></button>
+                            <button mat-mini-fab color="primary"><mat-icon>done</mat-icon></button>
+                            <button mat-mini-fab color="warn"><mat-icon>clear</mat-icon></button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

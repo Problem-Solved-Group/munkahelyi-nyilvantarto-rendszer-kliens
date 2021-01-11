@@ -4,24 +4,34 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
+  import { PageNotFoundComponent } from './errors/page-not-found/page-not-found.component';
+
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+  import { MenuComponent } from './menu/menu.component';
+  import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { AuthComponent } from './auth/auth.component';
-import { LoginComponent } from './auth/login/login.component';
-import { PageNotFoundComponent } from './errors/page-not-found/page-not-found.component';
-import { MessagesComponent } from './messages/messages.component';
-import { MenuComponent } from './menu/menu.component';
-import { RegistrationComponent } from './auth/registration/registration.component';
+  import { LoginComponent } from './auth/login/login.component';
+  import { RegistrationComponent } from './auth/registration/registration.component';
+
+
+import { MembersComponent } from './members/members.component';
 import { ProfileComponent } from './profile/profile.component';
-import { EditprofileComponent } from './profile/editprofile/editprofile.component';
-import { MessageComponent } from './messages/message/message.component';
+
+import { MessagesComponent } from './messages/messages.component';
+  import { MessageComponent } from './messages/message/message.component';
+  import { AddmessageComponent } from './messages/addmessage/addmessage.component';
+
 import { AnnouncementsComponent } from './announcements/announcements.component';
-import { AnnouncementComponent } from './announcements/announcement/announcement.component';
-import { AddEditannouncementsComponent } from './announcements/addeditannouncements/addeditannouncements.component';
-import { AddmessageComponent } from './messages/addmessage/addmessage.component';
+  import { AnnouncementComponent } from './announcements/announcement/announcement.component';
+  import { AddEditannouncementsComponent } from './announcements/addeditannouncements/addeditannouncements.component';
 
+import { CalendarComponent } from './calendar/calendar.component';
+  import { AddeditcalendarComponent } from './calendar/addeditcalendar/addeditcalendar.component';
 
-import { FlexLayoutModule } from '@angular/flex-layout';
+//Layout
+  import { FlexLayoutModule } from '@angular/flex-layout';
+
 //Materials
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -38,9 +48,11 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSelectModule} from '@angular/material/select';
-import { WorkingtimesComponent } from './workingtimes/workingtimes.component';
-import { WorkingtimeComponent } from './workingtimes/workingtime/workingtime.component';
-import { AddeditworkingtimeComponent } from './workingtimes/addeditworkingtime/addeditworkingtime.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { EditmemberComponent } from './members/editmember/editmember.component';
+import { UnseenRequestComponent } from './calendar/unseen-request/unseen-request.component';
+
+
 
 
 
@@ -54,15 +66,16 @@ import { AddeditworkingtimeComponent } from './workingtimes/addeditworkingtime/a
     MenuComponent,
     RegistrationComponent,
     ProfileComponent,
-    EditprofileComponent,
     MessageComponent,
     AnnouncementsComponent,
     AnnouncementComponent,
     AddEditannouncementsComponent,
     AddmessageComponent,
-    WorkingtimesComponent,
-    WorkingtimeComponent,
-    AddeditworkingtimeComponent,
+    CalendarComponent,
+    AddeditcalendarComponent,
+    MembersComponent,
+    EditmemberComponent,
+    UnseenRequestComponent,
   ],
   imports: [
     BrowserModule,
@@ -86,7 +99,8 @@ import { AddeditworkingtimeComponent } from './workingtimes/addeditworkingtime/a
     MatChipsModule,
     MatAutocompleteModule,
     MatExpansionModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

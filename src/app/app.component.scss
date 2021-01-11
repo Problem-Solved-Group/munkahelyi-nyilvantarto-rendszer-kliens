@@ -8,6 +8,13 @@
 
 .navbar {
     margin-bottom: 20px;
+    position: fixed;
+    top: 0; /* Sets the sticky toolbar to be on top */
+    z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+}
 
+.navbar span.headertext{
+    outline: none;
+    cursor: pointer;
 }
 

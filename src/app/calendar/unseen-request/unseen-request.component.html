@@ -1,0 +1,135 @@
+<div fxLayoutAlign="center center" fxFlexFill>
+    <mat-card fxFlex="80">
+        <mat-toolbar><span class="menu-spacer"></span>Kérelmek elbírálása<span class="menu-spacer"></span></mat-toolbar>
+        <mat-tab-group mat-strech-tabs mat-align-tabs="center" dynamicHeight>
+            <mat-tab label="Munkaidő">
+                <div class="workinglist">
+                    <form [formGroup]="dateGroup" (submit)="list(dateGroup)">
+                        <mat-form-field appearance="fill" fxFlex="10">
+                            <mat-label>Dátum</mat-label>
+                            <input matInput type="date" formControlName="date">
+                            <mat-error>Mező kitöltése kötelező!</mat-error>
+                        </mat-form-field>
+                        <div>
+                            <button class="list" mat-raised-button color="accent"><mat-icon>add</mat-icon>Listáz</button>
+                        </div>
+                    </form>
+                    <div class="header" fxLayout="row" fxLayoutAlign="space-around center" >
+                        <div class="menu-spacer"></div>
+                        <p>Ellenőrizetlen munkaidők</p>
+                        <div class="menu-spacer"></div>
+                    </div>
+                    <table>
+                        <tr>
+                            <th>Név</th>
+                            <th>Dátum</th>
+                            <th>Kezdés időpontja</th>
+                            <th>Befejezés időpontja</th>
+                            <th>Műveletek</th>
+                        </tr>
+                        <tr>
+                            <td>Worker</td>
+                            <td>
+                                2020.01.10
+                            </td>
+                            <td>
+                                8:01
+                            </td>
+                            <td>
+                                18:13
+                            </td>
+                            <td>
+                                <button mat-mini-fab color="primary"><mat-icon>done</mat-icon></button>
+                                <button mat-mini-fab color="warn"><mat-icon>clear</mat-icon></button>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="header" fxLayout="row" fxLayoutAlign="space-around center" >
+                        <div class="menu-spacer"></div>
+                        <p>Ellenőrzött munkaidők</p>
+                        <div class="menu-spacer"></div>
+                    </div>
+                    <table>
+                        <tr>
+                            <th>Név</th>
+                            <th>Dátum</th>
+                            <th>Kezdés időpontja</th>
+                            <th>Befejezés időpontja</th>
+                            <th>Státusz</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                Worker
+                            </td>
+                            <td>
+                                2020.01.10
+                            </td>
+                            <td>
+                                8:01
+                            </td>
+                            <td>
+                                18:13
+                            </td>
+                            <td>
+                                Nem ellenőrzött
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </mat-tab>
+            <mat-tab label="Szabadság">
+                <div class="holidayrequest">
+                    <form [formGroup]="dateGroup" (submit)="list(dateGroup)">
+                        <mat-form-field appearance="fill" fxFlex="10">
+                            <mat-label>Dátum</mat-label>
+                            <input matInput type="date" formControlName="date">
+                            <mat-error>Mező kitöltése kötelező!</mat-error>
+                        </mat-form-field>
+                        <div>
+                            <button class="list" mat-raised-button color="accent"><mat-icon>add</mat-icon>Listáz</button>
+                        </div>
+                    </form>
+                    <div class="header" fxLayout="row" fxLayoutAlign="space-around center" >
+                        <div class="menu-spacer"></div>
+                        <p>Ellenőrizetlen szabadságkérelmek</p>
+                        <div class="menu-spacer"></div>
+                    </div>
+                    <table>
+                        <tr>
+                            <th>Név</th>
+                            <th>Kért nap</th>
+                            <th>Műveletek</th>
+                        </tr>
+                        <tr>
+                            <td>Worker</td>
+                            <td>
+                                2020.12.24
+                            </td>
+                            <td>
+                                <button mat-mini-fab color="primary"><mat-icon>done</mat-icon></button>
+                                <button mat-mini-fab color="warn"><mat-icon>clear</mat-icon></button>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="header" fxLayout="row" fxLayoutAlign="space-around center" >
+                        <div class="menu-spacer"></div>
+                        <p>Ellenőrzött szabadságkérelmek</p>
+                        <div class="menu-spacer"></div>
+                    </div>
+                    <table>
+                        <tr>
+                            <th>Név</th>
+                            <th>Kért nap</th>
+                        </tr>
+                        <tr>
+                            <td>Worker</td>
+                            <td>
+                                2020.12.24
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </mat-card>
+</div>
