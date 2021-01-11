@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddmessageComponent } from '../messages/addmessage/addmessage.component';
 import { AuthService } from '../services/auth.service';
+import { ProfileService } from '../services/profile.service';
 
 @Component({
   selector: 'app-menu',
@@ -12,9 +13,11 @@ export class MenuComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    private as : AuthService) { }
+    private as : AuthService,
+    public ps: ProfileService) {}
 
   ngOnInit(): void {
+    this.ps.getCurrentUser();
   }
 
 
@@ -23,5 +26,9 @@ export class MenuComponent implements OnInit {
   }
   logout() {
     this.as.logout();
+  }
+
+  isUserAllowedToAdminPage() {
+    return this.ps.currentUser$.value?.role !== "ROLE_WORKER";
   }
 }

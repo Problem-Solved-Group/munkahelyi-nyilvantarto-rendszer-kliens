@@ -7,18 +7,21 @@
                 </button>
             </div>
         
-            <div class="menu-button">
-                <button mat-mini-fab aria-label="Naptár" routerLink="/calendar" routerLinkActive="active" matTooltip="Naptár">
-                    <mat-icon>calendar_today</mat-icon>
-                </button>
-            </div>
-        
-            <div class="menu-button">
-                <button mat-mini-fab aria-label="Naptár" [matMenuTriggerFor]="calendarMenu" matTooltip="Naptár">
-                    <mat-icon>calendar_today</mat-icon>
-                </button>
-            </div>
+            <ng-container *ngIf="!isUserAllowedToAdminPage()">
+                <div class="menu-button">
+                    <button mat-mini-fab aria-label="Naptár" routerLink="/calendar" routerLinkActive="active" matTooltip="Naptár">
+                        <mat-icon>calendar_today</mat-icon>
+                    </button>
+                </div>
+            </ng-container>
 
+            <ng-container *ngIf="isUserAllowedToAdminPage()">
+                <div class="menu-button">
+                    <button mat-mini-fab aria-label="Naptár" [matMenuTriggerFor]="calendarMenu" matTooltip="Naptár">
+                        <mat-icon>calendar_today</mat-icon>
+                    </button>
+                </div>
+            </ng-container>
             <div class="menu-button">
                 <button mat-mini-fab aria-label="Üzenetek" [matMenuTriggerFor]="messagesMenu" matTooltip="Üzenetek">
                     <mat-icon>chat</mat-icon>
@@ -67,12 +70,14 @@
 </mat-menu>
 
 <mat-menu #calendarMenu="matMenu">
-    <button mat-menu-item routerLink="/calendar" routerLinkActive="active">
-        <mat-icon>calendar_today</mat-icon>
-        Naptár
-    </button>
-    <button mat-menu-item routerLink="/unseen" routerLinkActive="active">
-        <mat-icon>pending</mat-icon>
-        Kérlmek elbírálása
-    </button>
+    <ng-container *ngIf="isUserAllowedToAdminPage()">
+        <button mat-menu-item routerLink="/calendar" routerLinkActive="active">
+            <mat-icon>calendar_today</mat-icon>
+            Naptár
+        </button>
+        <button mat-menu-item routerLink="/unseen" routerLinkActive="active">
+            <mat-icon>pending</mat-icon>
+            Kérlmek elbírálása
+        </button>
+    </ng-container>
 </mat-menu>

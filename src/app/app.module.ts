@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
   import { MenuComponent } from './menu/menu.component';
   import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { AuthGuard } from './services/guards/auth.guard';
 import { AuthComponent } from './auth/auth.component';
   import { LoginComponent } from './auth/login/login.component';
   import { RegistrationComponent } from './auth/registration/registration.component';
@@ -54,6 +55,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { EditmemberComponent } from './members/editmember/editmember.component';
 import { UnseenRequestComponent } from './calendar/unseen-request/unseen-request.component';
 import { LocalDateTimePipe } from './services/pipes/localdatetime.pipe';
+
 
 
 
@@ -108,7 +110,9 @@ import { LocalDateTimePipe } from './services/pipes/localdatetime.pipe';
     MatSelectModule,
     MatTooltipModule
   ],
-  providers: [],
+  providers: [
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

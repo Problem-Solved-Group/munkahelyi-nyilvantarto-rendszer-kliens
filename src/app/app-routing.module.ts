@@ -9,18 +9,20 @@ import { MembersComponent } from './members/members.component';
 import { MessagesComponent } from './messages/messages.component';
 import { ProfileComponent } from './profile/profile.component';
 
+import { AuthGuard } from 'src/app/services/guards/auth.guard';
+
 const routes: Routes = [
   {path: '', component: AuthComponent},
-  {path: 'profile', component: ProfileComponent},
-  {path: 'messages/sent', component: MessagesComponent},
-  {path: 'messages/received', component: MessagesComponent},
-  {path: '', component: AuthComponent},
-  {path: 'announcements', component: AnnouncementsComponent},
-  {path: 'unseen', component: UnseenRequestComponent},
-  {path: 'members', component:MembersComponent},
-  {path: 'messages', component: MessagesComponent},
-  {path: 'calendar', component: CalendarComponent},
-  {path: '404', component: PageNotFoundComponent},
+  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
+  {path: 'messages/sent', component: MessagesComponent, canActivate: [AuthGuard]},
+  {path: 'messages/received', component: MessagesComponent, canActivate: [AuthGuard]},
+  {path: '', component: AuthComponent, canActivate: [AuthGuard]},
+  {path: 'announcements', component: AnnouncementsComponent, canActivate: [AuthGuard]},
+  {path: 'unseen', component: UnseenRequestComponent, canActivate: [AuthGuard]},
+  {path: 'members', component:MembersComponent, canActivate: [AuthGuard]},
+  {path: 'messages', component: MessagesComponent, canActivate: [AuthGuard]},
+  {path: 'calendar', component: CalendarComponent, canActivate: [AuthGuard]},
+  {path: '404', component: PageNotFoundComponent, canActivate: [AuthGuard]},
   {path: '**', redirectTo:'404', pathMatch:'full'}
 ];
 

@@ -37,23 +37,16 @@
                         <th>Státusz</th>
                         <th>Műveletek</th>
                     </tr>
-                    <tr>
+                    <tr *ngFor="let item of (wt.workingtimes$ | async);">
+                        <td>{{item.start}}</td>
+                        <td>{{item.start}}</td>
+                        <td>{{item.end}}</td>
+                        <td>{{item.validated ? 'Ellenőrzött' : "Nem ellenőrzött"}}</td>
                         <td>
-                            2020.01.10
-                        </td>
-                        <td>
-                            8:01
-                        </td>
-                        <td>
-                            18:13
-                        </td>
-                        <td>
-                            Nem ellenőrzött
-                        </td>
-                        <td>
-                            <button mat-mini-fab (click)="onModWTClick()"><mat-icon>settings</mat-icon></button>
-                            <button mat-mini-fab color="primary"><mat-icon>done</mat-icon></button>
-                            <button mat-mini-fab color="warn"><mat-icon>clear</mat-icon></button>
+                             <ng-container *ngIf="item.validated===false">
+                                <button mat-mini-fab (click)="onModWTClick(item)"><mat-icon>settings</mat-icon></button>
+                                <button mat-mini-fab color="warn" (click)="onDeleteWTClick(item)"><mat-icon>clear</mat-icon></button>
+                             </ng-container>
                         </td>
                     </tr>
                 </table>
@@ -70,17 +63,13 @@
                         <th>Státusz</th>
                         <th>Műveletek</th>
                     </tr>
-                    <tr>
+                    <tr *ngFor="let item of (hr.holidayrequest$ | async)">
+                        <td>{{item.requestedDay}}</td>
+                        <td>{{item.status}}</td>
                         <td>
-                            2020.12.24
-                        </td>
-                        <td>
-                            Nem ellenőrzött
-                        </td>
-                        <td>
-                            <button mat-mini-fab><mat-icon>settings</mat-icon></button>
-                            <button mat-mini-fab color="primary"><mat-icon>done</mat-icon></button>
-                            <button mat-mini-fab color="warn"><mat-icon>clear</mat-icon></button>
+                            <ng-container *ngIf="item.status === 'UNSEEN'">
+                                <button mat-mini-fab color="warn" (click)="onDeleteHRClick(item)"><mat-icon>clear</mat-icon></button>
+                            </ng-container>
                         </td>
                     </tr>
                 </table>
