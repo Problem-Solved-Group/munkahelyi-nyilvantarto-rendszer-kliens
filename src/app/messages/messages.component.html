@@ -1,19 +1,25 @@
-<div fxLayoutAlign="center center" fxFlexFill>
-    <mat-card fxFlex="80">
-        <mat-toolbar><span class="menu-spacer"></span>Üzenetek<span class="menu-spacer"></span></mat-toolbar>
-        <mat-card-content>
-            <div class="message">
-                <app-message></app-message>
-            </div>
-            <div class="message">
-                <app-message></app-message>
-            </div>
-            <div class="message">
-                <app-message></app-message>
-            </div>
-            <div class="message">
-                <app-message></app-message>
-            </div>
-        </mat-card-content>
-    </mat-card>
+<div *ngIf="router.url == '/messages/sent'; else received">
+    <div fxLayoutAlign="center center" fxFlexFill>
+        <mat-card fxFlex="80">
+            <mat-toolbar><span class="menu-spacer"></span>Üzenetek<span class="menu-spacer"></span></mat-toolbar>
+            <mat-card-content>
+                <div class="message" *ngFor="let message of (ms.sentMessages$ | async)">
+                    <app-message [message]="message"></app-message>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
 </div>
+
+<ng-template #received>
+    <div fxLayoutAlign="center center" fxFlexFill>
+        <mat-card fxFlex="80">
+            <mat-toolbar><span class="menu-spacer"></span>Üzenetek<span class="menu-spacer"></span></mat-toolbar>
+            <mat-card-content>
+                <div class="message" *ngFor="let message of (ms.receivedMessages$ | async)">
+                    <app-message [message]="message"></app-message>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</ng-template>

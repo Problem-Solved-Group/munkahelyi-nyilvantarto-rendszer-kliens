@@ -8,19 +8,32 @@ import { baseUrl } from 'src/environments/environment';
     providedIn: 'root'
 })
 export class MessageService{
-    public messages$ = new BehaviorSubject<Message[]>([]);
+    public sentMessages$ = new BehaviorSubject<Message[]>([]);
+    public receivedMessages$ = new BehaviorSubject<Message[]>([]);
     
     constructor(private http: HttpClient){
 
     }
 
     getSentMessages() {
-        const header = new HttpHeaders().set(
+        this.http.get<Message[]>(`${baseUrl}/messages/sent`, {headers: this.generateHeader()})
+        .subscribe(m => {
+            this.sentMessages$.next(m);
+        });
+    }
+
+    getReceivedMessages() {
+        
+        this.http.get<Message[]>(`${baseUrl}/messages/received`, {headers: this.generateHeader()})
+        .subscribe(m => {
+            this.receivedMessages$.next(m);
+        });
+    }
+
+    generateHeader() {
+        let header = new HttpHeaders().set(
             'Authorization', `Bearer ${localStorage.getItem('token')}`
         );
-        this.http.get<Message[]>(`${baseUrl}/messages/sent`, {headers: header})
-        .subscribe(m => {
-            this.messages$.next(m);
-        });
+        return header;
     }
 }

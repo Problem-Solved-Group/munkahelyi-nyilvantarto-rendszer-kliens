@@ -47,10 +47,13 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { CommonModule } from '@angular/common';
+
 import {MatSelectModule} from '@angular/material/select';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { EditmemberComponent } from './members/editmember/editmember.component';
 import { UnseenRequestComponent } from './calendar/unseen-request/unseen-request.component';
+
 
 
 
@@ -78,6 +81,7 @@ import { UnseenRequestComponent } from './calendar/unseen-request/unseen-request
     UnseenRequestComponent,
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

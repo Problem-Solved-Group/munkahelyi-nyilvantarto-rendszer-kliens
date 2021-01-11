@@ -12,6 +12,9 @@ import { ProfileComponent } from './profile/profile.component';
 const routes: Routes = [
   {path: '', component: AuthComponent},
   {path: 'profile', component: ProfileComponent},
+  {path: 'messages/sent', component: MessagesComponent},
+  {path: 'messages/received', component: MessagesComponent},
+  {path: '', component: AuthComponent},
   {path: 'announcements', component: AnnouncementsComponent},
   {path: 'unseen', component: UnseenRequestComponent},
   {path: 'members', component:MembersComponent},
