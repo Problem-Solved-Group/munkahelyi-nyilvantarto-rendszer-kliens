@@ -54,8 +54,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { EditmemberComponent } from './members/editmember/editmember.component';
 import { UnseenRequestComponent } from './calendar/unseen-request/unseen-request.component';
 import { LocalDateTimePipe } from './services/pipes/localdatetime.pipe';
-
-
+import {MatBadgeModule} from '@angular/material/badge';
 
 
 
@@ -106,7 +105,8 @@ import { LocalDateTimePipe } from './services/pipes/localdatetime.pipe';
     MatAutocompleteModule,
     MatExpansionModule,
     MatSelectModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

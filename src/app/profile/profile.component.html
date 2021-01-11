@@ -2,12 +2,11 @@
     <mat-card fxFlex="50">
         <mat-card-header>
             <div mat-card-avatar class="profile-avatar"></div>
-             <mat-card-title>{{ps.currentUser$["name"]}}</mat-card-title>
-             <mat-card-subtitle>{{ps.currentUser$["role"]}}</mat-card-subtitle>
+             <mat-card-title>{{ps.currentUser$.value?.name}}</mat-card-title>
+             <mat-card-subtitle>{{ps.currentUser$.value?.role.split('_')[1]}}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
-            <span><mat-icon>email</mat-icon><span class="label">{{ps.currentUser$["email"]}}</span></span><br>
-            <span><mat-icon>schedule</mat-icon><span class="label">{{ps.currentUser$["created_at"]}}</span></span><br>
+            <span><mat-icon>email</mat-icon><span class="label">{{ps.currentUser$.value?.email}}</span></span><br>
             <span>
                 <mat-icon>domain</mat-icon><span class="label">Telephely(ek)</span>
                 <ul class="site-list">

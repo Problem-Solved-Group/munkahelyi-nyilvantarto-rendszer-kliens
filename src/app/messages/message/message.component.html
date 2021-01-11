@@ -1,7 +1,16 @@
 <mat-accordion multi>
     <mat-expansion-panel>
-        <mat-expansion-panel-header>
-            <mat-panel-title><b>{{ message.title }}</b><mat-icon>visibility</mat-icon></mat-panel-title>
+        <mat-expansion-panel-header [ngClass]="{'colored' : router.url === '/messages/received' && message.seen_at == null}" (click)="clickOnMessage(message)">
+            <mat-panel-title><b>{{ message.title }}</b>
+                <ng-container *ngIf="router.url == '/messages/sent'">
+                    <ng-container *ngIf="message.seen_at != null;else notseen">
+                        <mat-icon matTooltip="Látta ekkor: {{message.seen_at}}">visibility</mat-icon>
+                    </ng-container>
+                    <ng-template #notseen>
+                        <mat-icon matTooltip="Még nem látta">visibility_off</mat-icon>
+                    </ng-template>
+                </ng-container>
+            </mat-panel-title>
             <mat-panel-description>
                 <span><mat-icon>account_circle</mat-icon>
                     <ng-container *ngIf="router.url == '/messages/sent';else sender">

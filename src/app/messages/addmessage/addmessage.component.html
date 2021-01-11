@@ -11,7 +11,9 @@
 			<mat-label>Címzett</mat-label>
 			<mat-select formControlName="receiver">
 				<ng-container *ngFor="let user of (ps.allUser$ | async)">
-					<mat-option [value]="user.username">{{user.username}} ({{user.name}})</mat-option>
+					<ng-container *ngIf="user.id !== ps.currentUser$.value.id">
+						<mat-option [value]="user.username">{{user.username}} ({{user.name}})</mat-option>
+					</ng-container>
 				</ng-container>
 			</mat-select>
 		</mat-form-field>

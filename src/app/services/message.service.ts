@@ -49,7 +49,17 @@ export class MessageService{
     }
 
     setSeen(message:Message) {
-
+        this.http.put<Message>(`${baseUrl}/messages/${message.id}/seen`, {} ,{headers: this.generateHeader()})
+        .subscribe(
+            updatedMessage => {
+                const index = this.receivedMessages$.getValue().findIndex(x => x.id === message.id);
+                this.receivedMessages$.getValue()[index] = updatedMessage;
+            },
+            error => {
+                console.log("henny penny");
+                console.error(error);
+            }
+        );
     }
 
     generateHeader() {
