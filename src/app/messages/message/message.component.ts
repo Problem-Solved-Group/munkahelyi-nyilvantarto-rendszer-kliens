@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Message } from 'src/app/services/interfaces/message.interface';
+import { LocalDateTimePipe } from 'src/app/services/pipes/localdatetime.pipe';
 
 @Component({
   selector: 'app-message',
@@ -11,7 +12,8 @@ export class MessageComponent implements OnInit {
 
   @Input() message: Message = null;
 
-  constructor(public router: Router) { }
+  constructor(public router: Router) {
+   }
 
   ngOnInit(): void {
   }

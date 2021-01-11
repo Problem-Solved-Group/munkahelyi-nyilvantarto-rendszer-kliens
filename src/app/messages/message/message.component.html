@@ -1,7 +1,7 @@
 <mat-accordion multi>
     <mat-expansion-panel>
         <mat-expansion-panel-header>
-            <mat-panel-title><b>{{ message.title }}</b></mat-panel-title>
+            <mat-panel-title><b>{{ message.title }}</b><mat-icon>visibility</mat-icon></mat-panel-title>
             <mat-panel-description>
                 <span><mat-icon>account_circle</mat-icon>
                     <ng-container *ngIf="router.url == '/messages/sent';else sender">
@@ -11,10 +11,9 @@
                         <span class="label">{{ message.sender.name }}</span>
                     </ng-template>
                 </span>
-                <span><mat-icon>schedule</mat-icon><span class="label">{{message.created_at}}</span></span>
+                <span><mat-icon>schedule</mat-icon><span class="label">{{ message.created_at?.toString() }}</span></span>
             </mat-panel-description>
         </mat-expansion-panel-header>
         <p>{{message.message}}</p>
     </mat-expansion-panel>
 </mat-accordion>
-

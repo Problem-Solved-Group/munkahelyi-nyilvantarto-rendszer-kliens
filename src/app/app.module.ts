@@ -53,6 +53,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { EditmemberComponent } from './members/editmember/editmember.component';
 import { UnseenRequestComponent } from './calendar/unseen-request/unseen-request.component';
+import { LocalDateTimePipe } from './services/pipes/localdatetime.pipe';
 
 
 
@@ -79,6 +80,7 @@ import { UnseenRequestComponent } from './calendar/unseen-request/unseen-request
     MembersComponent,
     EditmemberComponent,
     UnseenRequestComponent,
+    LocalDateTimePipe
   ],
   imports: [
     CommonModule,

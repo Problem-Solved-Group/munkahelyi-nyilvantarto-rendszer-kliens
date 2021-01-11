@@ -20,7 +20,9 @@ export class MessageService{
     getSentMessages() {
         this.http.get<Message[]>(`${baseUrl}/messages/sent`, {headers: this.generateHeader()})
         .subscribe(m => {
+            
             this.sentMessages$.next(m);
+            console.log(this.sentMessages$.getValue());
         });
     }
 

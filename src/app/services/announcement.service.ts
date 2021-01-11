@@ -16,12 +16,13 @@ export class AnnouncementService{
     }
 
     getAvailableAnnouncements() {
+        const now = Date.now();
         const header = new HttpHeaders().set(
             'Authorization', `Bearer ${localStorage.getItem('token')}`
         );
         this.http.get<Announcement[]>(`${baseUrl}/announcements`, {headers: header})
         .subscribe(a => {
-            this.announcements$.next(a.reverse());
+            this.announcements$.next(a.reverse().filter(ann => Date.parse(ann.showUntil) > now));
             console.log(a);
         });
     }
