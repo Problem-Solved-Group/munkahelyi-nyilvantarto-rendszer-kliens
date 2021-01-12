@@ -28,12 +28,12 @@
      - Minden vezetőnek/adminnak joga van új hirdetményt írni vagy egy meglévőt szerkeszteni
      - A munkások csak addig látják a hirdetményt, amíg le nem jár az érvényessége
    - Munkaidő / szabadságkérelem bejelentés, meglévő megtekintése, szerkesztése és elbírálása
-     - Minden vezetőnek/adminnak joga van meglévő bejelentést elbírálni
+     - Mindenadminnak joga van meglévő bejelentést elbírálni
      - Minden dolgozó létrehozhat új bejelentést vagy szerkesztheti/törölheti a sajátját
    - Üzenetek megtekintése és írása
      - Minden dolgozó küldhet és fogadhat új üzenetet másoktók
    - Alkalmazottak megtekintése és szerkesztése
-     - Minden vezetőnek/adminnak joga van szerkeszteni egy dolgozó beosztását és telephelyeit
+     - Minden adminnak joga van szerkeszteni egy dolgozó beosztását és telephelyeit
      - Minden dolgozó megtekintheti a többi dolgozót
    - Saját profil megtekintése
      - Minden dolgozó megtekintheti a saját profilját
