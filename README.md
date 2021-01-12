@@ -22,7 +22,7 @@
    - enviroment - környezeti változók
    - style.scss - globális stílusosztály
  - Használati eset diagram:
-   - ![Használati eset diagram](https://ikelte-my.sharepoint.com/:i:/g/personal/w57a8i_inf_elte_hu/EcCXdapP2NtNvpt9r2whonoBPMz-oUBiGgphQe-2iipPoA?e=7MGaMX)
+   - [Használati eset diagram](https://ikelte-my.sharepoint.com/:i:/g/personal/w57a8i_inf_elte_hu/EcCXdapP2NtNvpt9r2whonoBPMz-oUBiGgphQe-2iipPoA?e=7MGaMX)
  - Kliensoldali szolgáltatások:
    - Hirdetmények megtekintése és írása/szerkesztése
      - Minden vezetőnek/adminnak joga van új hirdetményt írni vagy egy meglévőt szerkeszteni
