@@ -22,12 +22,12 @@
    - enviroment - környezeti változók
    - style.scss - globális stílusosztály
  - Használati eset diagram:
- 
+   - [Használati eset diagram](https://ikelte-my.sharepoint.com/:i:/g/personal/w57a8i_inf_elte_hu/EcCXdapP2NtNvpt9r2whonoBPMz-oUBiGgphQe-2iipPoA?e=7MGaMX)
  - Kliensoldali szolgáltatások:
    - Hirdetmények megtekintése és írása/szerkesztése
      - Minden vezetőnek/adminnak joga van új hirdetményt írni vagy egy meglévőt szerkeszteni
      - A munkások csak addig látják a hirdetményt, amíg le nem jár az érvényessége
-   - Munkaidő / szabadságkérés bejelentés, meglévő megtekintése, szerkesztése és elbírálása
+   - Munkaidő / szabadságkérelem bejelentés, meglévő megtekintése, szerkesztése és elbírálása
      - Minden vezetőnek/adminnak joga van meglévő bejelentést elbírálni
      - Minden dolgozó létrehozhat új bejelentést vagy szerkesztheti/törölheti a sajátját
    - Üzenetek megtekintése és írása
@@ -35,8 +35,10 @@
    - Alkalmazottak megtekintése és szerkesztése
      - Minden vezetőnek/adminnak joga van szerkeszteni egy dolgozó beosztását és telephelyeit
      - Minden dolgozó megtekintheti a többi dolgozót
-    - Saját profil megtekintése
+   - Saját profil megtekintése
      - Minden dolgozó megtekintheti a saját profilját
+   - Új telephely hozzáadása
+     - Minden adminnak joga van hozzáadni/szerkeszteni egy telephelyet.
        
  - Egy funkció folyamatának leírása (Új munkaidő bejelentése):
    - A menüsávon kiválasztjuk a naptár menüpontot, ez átirányít minket a naptárra
