@@ -27,7 +27,13 @@
                     <mat-icon>chat</mat-icon>
                 </button>
             </div>    
-        
+            
+            <div class="menu-button">
+                <button mat-mini-fab aria-label="Telephelyek" routerLink="/sites" routerLinkActive="active" matTooltip="Telephelyek">
+                    <mat-icon>house_siding</mat-icon>
+                </button>
+            </div>
+
             <div class="menu-button">
                 <button mat-mini-fab aria-label="Alkalmazottak" routerLink="/members" routerLinkActive="active" matTooltip="Alkalmazottak">
                     <mat-icon>supervisor_account</mat-icon>
@@ -39,6 +45,8 @@
                     <mat-icon>account_circle</mat-icon>
                 </button>
             </div>
+
+            
         </div>
     </div>
 </section>
@@ -77,7 +85,7 @@
         </button>
         <button mat-menu-item routerLink="/unseen" routerLinkActive="active">
             <mat-icon>pending</mat-icon>
-            Kérlmek elbírálása
+            Kérelmek elbírálása
         </button>
     </ng-container>
 </mat-menu>

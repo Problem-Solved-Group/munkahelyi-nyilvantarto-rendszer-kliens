@@ -56,6 +56,9 @@ import { EditmemberComponent } from './members/editmember/editmember.component';
 import { UnseenRequestComponent } from './calendar/unseen-request/unseen-request.component';
 import { LocalDateTimePipe } from './services/pipes/localdatetime.pipe';
 import {MatBadgeModule} from '@angular/material/badge';
+import { SitesComponent } from './sites/sites.component';
+import { AddeditsiteComponent } from './sites/addeditsite/addeditsite.component';
+
 
 
 
@@ -81,7 +84,9 @@ import {MatBadgeModule} from '@angular/material/badge';
     MembersComponent,
     EditmemberComponent,
     UnseenRequestComponent,
-    LocalDateTimePipe
+    LocalDateTimePipe,
+    SitesComponent,
+    AddeditsiteComponent
   ],
   imports: [
     CommonModule,

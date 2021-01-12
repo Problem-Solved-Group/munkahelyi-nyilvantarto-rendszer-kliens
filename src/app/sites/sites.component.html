@@ -1,0 +1,26 @@
+<div fxLayoutAlign="center center" fxFlexFill>
+    <mat-card fxFlex="80">
+        <mat-toolbar><span class="menu-spacer"></span>Telephelyek<span class="menu-spacer"></span>
+            <ng-container *ngIf="isUserAllowedToCreate()">
+                <button mat-mini-fab color="primary" class="new-site" (click)="openEditDialog(null)">
+                    <mat-icon>add</mat-icon>
+                </button>
+            </ng-container>
+        </mat-toolbar>
+        <div class="card-container" fxLayout="row wrap" fxLayoutGap="16px grid">
+            <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.md="20%" *ngFor="let site of (ss.sites$ | async)">
+                <mat-card class="mat-elevation-z4">
+                    <mat-card-content>
+                        <span><mat-icon>tour</mat-icon><span class="label">{{site.name}}</span></span><br>
+                        <span><mat-icon>location_on</mat-icon><span class="label">{{site.location}}</span></span><br>
+                    </mat-card-content>
+                    <ng-container *ngIf="isUserAllowedToCreate()">
+                        <mat-card-actions>
+                            <button mat-mini-fab class="profile-edit" color="accent" (click)="openEditDialog(site)"><mat-icon>settings</mat-icon></button>
+                        </mat-card-actions>
+                    </ng-container>
+                </mat-card>
+            </div>
+        </div>
+    </mat-card>
+</div>

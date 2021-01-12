@@ -10,6 +10,8 @@ import { MessagesComponent } from './messages/messages.component';
 import { ProfileComponent } from './profile/profile.component';
 
 import { AuthGuard } from 'src/app/services/guards/auth.guard';
+import { SitesComponent } from './sites/sites.component';
+
 
 const routes: Routes = [
   {path: '', component: AuthComponent},
@@ -17,6 +19,7 @@ const routes: Routes = [
   {path: 'messages/sent', component: MessagesComponent, canActivate: [AuthGuard]},
   {path: 'messages/received', component: MessagesComponent, canActivate: [AuthGuard]},
   {path: '', component: AuthComponent, canActivate: [AuthGuard]},
+  {path: 'sites', component: SitesComponent, canActivate: [AuthGuard]},
   {path: 'announcements', component: AnnouncementsComponent, canActivate: [AuthGuard]},
   {path: 'unseen', component: UnseenRequestComponent, canActivate: [AuthGuard]},
   {path: 'members', component:MembersComponent, canActivate: [AuthGuard]},
