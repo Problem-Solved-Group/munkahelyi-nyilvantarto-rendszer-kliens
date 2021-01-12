@@ -20,11 +20,11 @@ export class MenuComponent implements OnInit {
     public ps: ProfileService,
     public ss: SiteService) 
   {
-    /*setInterval(() => {
+    setInterval(() => {
       this.ms.getSentMessages();
       this.ms.getReceivedMessages();
     },15000);
-    */
+    
   }
 
   ngOnInit(): void {
