@@ -38,9 +38,9 @@
                         <th>Műveletek</th>
                     </tr>
                     <tr *ngFor="let item of (wt.workingtimes$ | async);">
-                        <td>{{item.start}}</td>
-                        <td>{{item.start}}</td>
-                        <td>{{item.end}}</td>
+                        <td>{{item.start.split(" ")[0]}}</td>
+                        <td>{{item.start.split(" ")[1]}}</td>
+                        <td>{{item.end.split(" ")[1]}}</td>
                         <td>{{item.validated ? 'Ellenőrzött' : "Nem ellenőrzött"}}</td>
                         <td>
                              <ng-container *ngIf="item.validated===false">
@@ -64,7 +64,7 @@
                         <th>Műveletek</th>
                     </tr>
                     <tr *ngFor="let item of (hr.holidayrequest$ | async)">
-                        <td>{{item.requestedDay}}</td>
+                        <td>{{item.requestedDay.split(" ")[0]}}</td>
                         <td>{{item.status}}</td>
                         <td>
                             <ng-container *ngIf="item.status === 'UNSEEN'">

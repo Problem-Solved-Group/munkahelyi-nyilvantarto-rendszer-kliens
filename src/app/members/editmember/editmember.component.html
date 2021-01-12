@@ -23,12 +23,12 @@
 		</mat-form-field>
 		<mat-form-field appearance="fill" fxFlex="100">
 			<mat-label>Telephelyek</mat-label>
-			<mat-select formControlName="site" multiple>
-				<mat-option *ngFor="let num of [1,2,3,4,5,6]" [value]="num">Telephely {{num}}</mat-option>
+			<mat-select formControlName="sites" multiple [(ngModel)]="selected">
+				<mat-option *ngFor="let site of (ss.sites$ | async)" [value]="site.id" >{{site.name }} ({{site.location}})</mat-option>
 			</mat-select>
 		</mat-form-field>
 		<div>
 			<button mat-raised-button type="submit" color="accent">Módosítás</button>
 		</div>
     </div>
-</form>
+</form> 

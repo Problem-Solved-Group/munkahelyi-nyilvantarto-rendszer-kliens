@@ -1,5 +1,5 @@
-<mat-accordion multi>
-    <mat-expansion-panel>
+<mat-accordion multi >
+    <mat-expansion-panel >
         <mat-expansion-panel-header [ngClass]="{'colored' : router.url === '/messages/received' && message.seen_at == null}" (click)="clickOnMessage(message)">
             <mat-panel-title><b>{{ message.title }}</b>
                 <ng-container *ngIf="router.url == '/messages/sent'">

@@ -1,3 +1,4 @@
+import { splitAtColon } from '@angular/compiler/src/util';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -45,7 +46,7 @@ export class AddeditcalendarComponent implements OnInit {
     }
     if(data.wt) {
       this.wOrH = 1;
-      let workingTime : WorkingTime = data.wt;
+      let workingTime : WorkingTime = data.wt.date;
       let date = workingTime.start.split(" ")[0];
       let startDate = workingTime.start.split(" ")[1];
       let endDate = workingTime.end.split(" ")[1];
@@ -67,12 +68,18 @@ export class AddeditcalendarComponent implements OnInit {
 
 
   newWorkingTime(wF : FormGroup) {
-    console.log(wF.value);
     if(wF.valid) {
-      wF.value['start'] = this.dateString+" "+wF.value['start']+":00";
-      wF.value['end'] = this.dateString+" "+wF.value['end']+":00";
-      console.log(wF.value);
-      this.wt.createWorkingTime(wF.value);
+      if(this.data.wt === undefined){
+        wF.value['start'] = this.dateString +" "+wF.value['start'] + ":00";
+      wF.value['end'] =  this.dateString +" "+wF.value['end'] + ":00";
+        this.wt.createWorkingTime(wF.value);
+      }
+      else{
+        wF.value['start'] = this.data.wt.date.start.split(" ")[0] +" "+wF.value['start'].substring(0,5) + ":00";
+        wF.value['end'] =  this.data.wt.date.end.split(" ")[0]+" "+wF.value['end'].substring(0,5) + ":00";
+        console.log(wF.value);
+        this.wt.editWorkingTime(wF.value , this.data.wt.date.id);
+      }
       setTimeout(() => {this.dialogRef.close();},500);
     }
   }

@@ -1,4 +1,4 @@
-<form [formGroup]="registrationForm" fxLayoutAlign="stretch" fxLayout="column" novalidate>
+<form [formGroup]="registrationForm" fxLayoutAlign="stretch" fxLayout="column" (submit)="register(registrationForm)"  novalidate>
     <mat-form-field>
         <input
             matInput
@@ -60,6 +60,7 @@
         mat-raised-button
         color="accent"
         style="margin:15px 0 0 0"
+        
     >
         Regisztráció
     </button>

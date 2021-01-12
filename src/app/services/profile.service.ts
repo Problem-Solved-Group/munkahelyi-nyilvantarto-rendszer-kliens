@@ -29,6 +29,19 @@ export class ProfileService{
         });
     }
 
+    updateUser(id:number ,user:User) {
+        user.id = id;
+        this.http.put<User>(`${baseUrl}/users/${id}/update`, user, {headers: this.generateHeader()})
+        .subscribe(u => {
+            const index = this.allUser$.getValue().findIndex(x => x.id === id);
+            this.allUser$.getValue()[index] = u;
+            },
+            error => {
+                console.error(error);
+            }
+        );
+    }
+
     generateHeader() {
         let header = new HttpHeaders().set(
             'Authorization', `Bearer ${localStorage.getItem('token')}`

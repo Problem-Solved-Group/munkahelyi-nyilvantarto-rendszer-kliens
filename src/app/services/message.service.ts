@@ -20,9 +20,7 @@ export class MessageService{
     getSentMessages() {
         this.http.get<Message[]>(`${baseUrl}/messages/sent`, {headers: this.generateHeader()})
         .subscribe(m => {
-            
             this.sentMessages$.next(m);
-            console.log(this.sentMessages$.getValue());
         });
     }
 
@@ -56,7 +54,6 @@ export class MessageService{
                 this.receivedMessages$.getValue()[index] = updatedMessage;
             },
             error => {
-                console.log("henny penny");
                 console.error(error);
             }
         );

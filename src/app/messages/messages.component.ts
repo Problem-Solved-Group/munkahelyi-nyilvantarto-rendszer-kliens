@@ -11,11 +11,12 @@ import { MessageService } from '../services/message.service';
 export class MessagesComponent implements OnInit {
 
   constructor(public ms: MessageService,
-    public router:Router) { }
+    public router:Router) { 
+      
+    }
 
   ngOnInit(): void {
-    this.ms.getSentMessages();
-    this.ms.getReceivedMessages();
+    
   }
 
 }

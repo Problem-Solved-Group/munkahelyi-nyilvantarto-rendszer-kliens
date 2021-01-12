@@ -10,7 +10,7 @@
             <span>
                 <mat-icon>domain</mat-icon><span class="label">Telephely(ek)</span>
                 <ul class="site-list">
-                    <li *ngFor="let i of ['Bp', 'Zeg']">{{i}}-i telephely</li>
+                    <li *ngFor="let site of ps.currentUser$.value?.sites">{{site.name }} ({{site.location}})</li>
                 </ul>
             </span>
         </mat-card-content>
