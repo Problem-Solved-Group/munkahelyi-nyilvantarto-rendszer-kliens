@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.com/Problem-Solved-Group/munkahelyi-nyilvantarto-rendszer-kliens.svg?branch=main)](https://travis-ci.com/Problem-Solved-Group/munkahelyi-nyilvantarto-rendszer-kliens)
 # Munkahelyi Nyilvántartó Rendszer Kliens
 
-##Frontend
+## Frontend
  - Fejlesztői környezet:
    - Angular CLI
    - Visual Studio Code
