@@ -19,7 +19,8 @@ export class UnseenRequestComponent implements OnInit {
     public hr : HolidayrequestService
   ) {
     let date = new Date();
-    let dateString = date.getFullYear()+"-"+date.getMonth()+1+"-"+date.getDate();
+    let dateString = date.getFullYear()+"-"+this.expand(date.getMonth()+1)+"-"+this.expand(date.getDate());
+    console.log(dateString);
     this.dateGroup = this.formBuilder.group({
       day: [dateString, Validators.required]
     });
@@ -45,5 +46,10 @@ export class UnseenRequestComponent implements OnInit {
 
   validateWT(item: WorkingTime) {
     this.wt.validate(item.id);
+  }
+
+  expand(n : number): string {
+    if((n+"").length == 1) return "0"+(n+"");
+    else return n+"";
   }
 }
